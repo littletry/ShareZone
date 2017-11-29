@@ -9,8 +9,8 @@
         <module name="ShareZone" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ShareZone" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="ShareZone" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,7 +1,5 @@
 package top.littletry.sharezone.model;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;
 
@@ -10,14 +8,10 @@ import java.util.Date;
  * Date: 2017-11-29
  * Time: 14:24
  */
-@ApiModel(description = "用户请求")
 public class User {
     private long id;
-    @ApiModelProperty(value = "邮箱",example = "maxTse",position = 1)
     private String email;
-    @ApiModelProperty(value = "密码",example = "maxTse",position = 1)
     private String password;
-    @ApiModelProperty(value = "姓名",example = "maxTse",position = 1)
     private String username;
     private String role;
     private int status;

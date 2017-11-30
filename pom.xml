@@ -16,9 +16,7 @@
     <spring.version>4.3.5.RELEASE</spring.version>
     <!-- mybatis版本号 -->
     <mybatis.version>3.4.1</mybatis.version>
-    <!--swagger版本号-->
-    <swagger.version>1.5.8</swagger.version>
-    <io.springfox.version>2.5.0</io.springfox.version>
+
   </properties>
 
   <dependencies>
@@ -122,22 +120,7 @@
       <artifactId>spring-test</artifactId>
       <version>${spring.version}</version>
     </dependency>
-    <!--集成swagger-->
-    <dependency>
-      <groupId>io.swagger</groupId>
-      <artifactId>swagger-core</artifactId>
-      <version>${swagger.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.springfox</groupId>
-      <artifactId>springfox-swagger2</artifactId>
-      <version>${io.springfox.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.springfox</groupId>
-      <artifactId>springfox-swagger-ui</artifactId>
-      <version>${io.springfox.version}</version>
-    </dependency>
+
     
   </dependencies>
   <build>

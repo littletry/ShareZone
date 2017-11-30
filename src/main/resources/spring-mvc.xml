@@ -24,6 +24,11 @@
     <mvc:resources mapping="/images/**" location="/web/images/"/>
     <mvc:resources mapping="/js/**" location="/web/js/"/>
 
+    <!-- swagger 配置 -->
+    <bean class="top.littletry.sharezone.SwaggerConfiguration"/>
+    <!-- swagger ui resources-->
+    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
+
     <!-- 配置jsp 显示ViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>

@@ -14,6 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Created by LittleTry
  * Date: 2017-12-01
  * Time: 上午3:08
+ * @author LittleTry
  */
 @EnableSwagger2
 public class SwaggerConfiguration {
@@ -29,24 +30,37 @@ public class SwaggerConfiguration {
     }
     private ApiInfo outApiInfo() {
         return new ApiInfo(
-                "ShareZone接口文档", // title 标题
-                "接口文档", // description 描述 标题下
-                "1.0.0", // version
-                "http://mylearn/*", // termsOfService
-                new Contact("littletry","","1109394634@qq.com"), // contact
-                "Apache 2.0", // licence
-                "http://www.apache.org/licenses/LICENSE-2.0.html" // licence url
+                // title 标题
+                "ShareZone接口文档",
+                // description 描述 标题下
+                "接口文档",
+                // version
+                "1.0.0",
+                // termsOfService
+                "http://mylearn/*",
+                // contact
+                new Contact("littletry","","1109394634@qq.com"),
+                // licence
+                "Apache 2.0",
+                // licence url
+                "http://www.apache.org/licenses/LICENSE-2.0.html"
         );
     }
     @Bean
     public UiConfiguration getUiConfig() {
         return new UiConfiguration(
-                null,// url,暂不用
-                "none",       // docExpansion          => none | list
-                "alpha",      // apiSorter             => alpha
-                "schema",     // defaultModelRendering => schema
+                // url,暂不用
+                null,
+                // docExpansion          => none | list
+                "none",
+                // apiSorter             => alpha
+                "alpha",
+                // defaultModelRendering => schema
+                "schema",
                 UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS,
-                false,        // enableJsonEditor      => true | false
-                true);        // showRequestHeaders    => true | false
+                // enableJsonEditor      => true | false
+                false,
+                // showRequestHeaders    => true | false
+                true);
     }
 }

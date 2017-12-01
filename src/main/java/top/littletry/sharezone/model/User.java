@@ -82,4 +82,18 @@ public class User {
     public void setRegIp(String regIp) {
         this.regIp = regIp;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                ", role='" + role + '\'' +
+                ", status=" + status +
+                ", regTime=" + regTime +
+                ", regIp='" + regIp + '\'' +
+                '}';
+    }
 }

@@ -1,5 +1,7 @@
 package top.littletry.sharezone.service.impl;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
 import top.littletry.sharezone.dao.UserDao;
 import top.littletry.sharezone.model.User;
@@ -15,10 +17,13 @@ import javax.annotation.Resource;
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
+    private Log log = LogFactory.getLog(UserServiceImpl.class);
     @Resource
     private UserDao userDao;
     @Override
     public User selectUser(long userId) {
+        log.info("测试log");
         return this.userDao.selectUser(userId);
+
     }
 }

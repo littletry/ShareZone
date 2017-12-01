@@ -9,22 +9,28 @@ package top.littletry.sharezone.controller;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 /**
- * HelloController是一个实现Controller接口的控制器
- * 可以处理一个单一的请求动作
+ * HelloController是一个基于注解的控制器
+ * 可以同时处理多个请求动作，并且无须实现任何接口
+ * org.springframework.stereotype.Controller注解用于指示该类是一个控制器
  */
-public class HelloController implements Controller {
+@Controller
+public class HelloController{
 
     private static final Log logger = LogFactory.getLog(HelloController.class);
 
-    @Override
-    public ModelAndView handleRequest(HttpServletRequest request,
-                                      HttpServletResponse response) throws Exception{
+    /**
+     * org.springframework.web.bind.annotation.RequestMapping注解
+     * 用来映射请求的URL和请求的方法等
+     * 该方法返回一个包含视图名或视图名和模型的ModelAndView对象
+     * @return
+     */
+    @RequestMapping(value = "/hello")
+    public ModelAndView hello(){
         logger.info("handleRequest被调用");
         //创建准备返回的ModelAndView对象，该对象通常包含了返回视图名，模型的名称以及模型对象
         ModelAndView mv = new ModelAndView();

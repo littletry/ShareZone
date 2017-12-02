@@ -1,25 +1,26 @@
 package top.littletry.sharezone.controller;
 
-/**
- * Created by Intellij Idea
- * User：TryLittle
- * Date：2017/12/1
- * Time:21:34
- */
+
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 /**
- * HelloController是一个基于注解的控制器
- * 可以同时处理多个请求动作，并且无须实现任何接口
- * org.springframework.stereotype.Controller注解用于指示该类是一个控制器
+ * Created by Intellij Idea
+ * User：TryLittle
+ * Date：2017/12/1
+ * Time:21:34
+ * @author LittleTry
  */
 @Controller
 public class HelloController{
+    /**
+     * HelloController是一个基于注解的控制器
+     * 可以同时处理多个请求动作，并且无须实现任何接口
+     * org.springframework.stereotype.Controller注解用于指示该类是一个控制器
+     */
 
     private static final Log logger = LogFactory.getLog(HelloController.class);
 

@@ -12,5 +12,7 @@
 </head>
 <body>
     ${requestScope.message}
+    欢迎登陆
+    [${requestScope.user.username}]
 </body>
 </html>

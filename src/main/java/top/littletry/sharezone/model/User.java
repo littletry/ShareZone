@@ -1,5 +1,7 @@
 package top.littletry.sharezone.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Intellij Idea
  * User：LittleTry
@@ -8,10 +10,14 @@ package top.littletry.sharezone.model;
  *
  * @author LittleTry
  */
-public class User {
+public class User implements Serializable{
     private String loginname;
     private String password;
     private String username;
+    //公共构造器
+    public User() {
+        super();
+    }
 
     public String getUsername() {
         return username;

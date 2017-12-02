@@ -11,6 +11,9 @@
     <title>Title</title>
 </head>
 <body>
-    Hello World！
+    Hello World！<<br><br>
+    <a href="pathVariableTest/1">测试@PathVariable注解</a><br><br>
+    <a href="requestHeaderTest">测试@RequestHeader注解</a><br><br>
+    <a href="cookieValueTest">测试@CookieValue注解</a><br><br>
 </body>
 </html>

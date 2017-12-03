@@ -16,7 +16,7 @@ import top.littletry.sharezone.model.User;
  *
  * @author LittleTry
  */
-@Controller
+//@Controller
 public class User1Controller {
     private static final Log logger = LogFactory.getLog(User1Controller.class);
     //@ModelAttribute修饰的方法会先于login调用，该方法用于接收前台jsp页面传入的参数

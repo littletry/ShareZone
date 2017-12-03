@@ -17,13 +17,5 @@ import javax.annotation.Resource;
  */
 @Service("userService")
 public class UserServiceImpl implements UserService {
-    private Log log = LogFactory.getLog(UserServiceImpl.class);
-    @Resource
-    private UserDao userDao;
-    @Override
-    public User selectUser(long userId) {
-        log.info("测试log");
-        return this.userDao.selectUser(userId);
 
-    }
 }

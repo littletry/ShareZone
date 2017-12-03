@@ -9,10 +9,5 @@ import top.littletry.sharezone.model.User;
  * @author LittleTry
  */
 public interface UserService {
-    /**
-     * 根据id查询用户姓名
-     * @param userId
-     * @return
-     */
-    public User selectUser(long userId);
+
 }

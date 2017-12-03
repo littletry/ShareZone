@@ -28,10 +28,6 @@ public class SessionAttributesController {
         return "loginForm";
 
     }
-    @RequestMapping(value = "/{formName}")
-    public String loginForm(@PathVariable String formeName){
-        return formeName;
-    }
     @RequestMapping(value = "/login")
     public String login(
             @RequestParam("loginname") String loginname,

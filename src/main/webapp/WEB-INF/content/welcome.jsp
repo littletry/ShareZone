@@ -13,6 +13,8 @@
 <body>
     ${requestScope.message}
     欢迎登陆
-    [${requestScope.user.username}]
+    [${requestScope.user.username}]<<br><br>
+    ${requestScope.user.username}<br><br>
+    ${sessionScope.user.username}<br><br>
 </body>
 </html>

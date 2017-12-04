@@ -1,1 +1,4 @@
 .idea
+/ShareZone.iml
+/src/test/test.iml
+/target/

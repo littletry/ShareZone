@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 本机mysql
+Source Server         : localhost
 Source Server Version : 50527
 Source Host           : localhost:3306
 Source Database       : sharezone
@@ -10,29 +10,40 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2017-11-29 14:40:19
+Date: 2017-12-07 06:29:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for content
+-- ----------------------------
+DROP TABLE IF EXISTS `content`;
+CREATE TABLE `content` (
+  `id` varchar(255) COLLATE utf8_bin NOT NULL COMMENT '内容唯一标识',
+  `title` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '分享内容标题',
+  `detail` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '详细信息',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `imageUrl` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '图片地址',
+  `videoUrl` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '视频地址',
+  `userId` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户Id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-  `email` varchar(255) NOT NULL COMMENT '用户邮箱',
-  `password` varchar(255) NOT NULL COMMENT '用户密码',
-  `username` varchar(255) NOT NULL COMMENT '用户昵称',
-  `role` varchar(255) NOT NULL COMMENT '用户身份',
-  `status` int(1) NOT NULL COMMENT '用户状态',
-  `regTime` datetime NOT NULL COMMENT '注册时间',
-  `regIp` varchar(255) NOT NULL COMMENT '注册IP',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES ('1', '1109394634@qq.com', 'pass1234', 'ht', 'root', '0', '2017-03-28 09:40:31', '127.0.0.1');
+  `id` varchar(255) COLLATE utf8_bin NOT NULL COMMENT '用户唯一标识',
+  `loginName` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '登录用户名',
+  `password` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户密码',
+  `userName` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户姓名',
+  `sex` int(2) DEFAULT NULL COMMENT '用户性别',
+  `birthday` date DEFAULT NULL COMMENT '用户生日',
+  `email` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '用户邮箱',
+  `description` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户个性描述信息',
+  `regTime` datetime DEFAULT NULL COMMENT '用户注册时间',
+  `lastTime` datetime DEFAULT NULL COMMENT '用户最后一次登录时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

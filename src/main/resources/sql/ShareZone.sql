@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2017-12-07 06:29:23
+Date: 2017-12-07 08:21:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,6 +31,10 @@ CREATE TABLE `content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
+-- Records of content
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
@@ -47,3 +51,8 @@ CREATE TABLE `user` (
   `lastTime` datetime DEFAULT NULL COMMENT '用户最后一次登录时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES ('1', 'ht', 'ht950905', '黄涛', '1', '1995-10-28', '1109394634@qq.com', '一点点小努力，最后必然大成功', '2017-12-07 08:21:11', '2017-12-07 08:21:21');

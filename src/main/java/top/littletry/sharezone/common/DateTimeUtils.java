@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class DateTimeUtils {
     /**
-     * 时间格式转换成时间戳
+     * 时间格式转换成时间字符串
      *
      * @param date
      * @return
@@ -24,7 +24,7 @@ public class DateTimeUtils {
     }
 
     /**
-     * 时间戳转换成时间格式
+     * 时间字符串转换成时间格式
      *
      * @param source
      * @return

@@ -1,30 +1,43 @@
 package top.littletry.sharezone.model;
 
 
+import java.io.Serializable;
+
 /**
  * Created by LittleTry
  * Date: 2017-11-29
  * Time: 14:24
  * @author LittleTry
  */
-public class User {
+public class User implements Serializable {
     private String id;
+
     private String loginName;
+
     private String password;
+
     private String userName;
-    private int sex;
+
+    private Integer sex;
+
     private String birthday;
+
     private String email;
+
     private String description;
+
     private String regTime;
+
     private String lastTime;
+
+    private static final long serialVersionUID = 1L;
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id = id == null ? null : id.trim();
     }
 
     public String getLoginName() {
@@ -32,7 +45,7 @@ public class User {
     }
 
     public void setLoginName(String loginName) {
-        this.loginName = loginName;
+        this.loginName = loginName == null ? null : loginName.trim();
     }
 
     public String getPassword() {
@@ -40,7 +53,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password == null ? null : password.trim();
     }
 
     public String getUserName() {
@@ -48,14 +61,14 @@ public class User {
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.userName = userName == null ? null : userName.trim();
     }
 
-    public int getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(int sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
@@ -64,7 +77,7 @@ public class User {
     }
 
     public void setBirthday(String birthday) {
-        this.birthday = birthday;
+        this.birthday = birthday == null ? null : birthday.trim();
     }
 
     public String getEmail() {
@@ -72,7 +85,7 @@ public class User {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = email == null ? null : email.trim();
     }
 
     public String getDescription() {
@@ -80,7 +93,7 @@ public class User {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description = description == null ? null : description.trim();
     }
 
     public String getRegTime() {
@@ -88,7 +101,7 @@ public class User {
     }
 
     public void setRegTime(String regTime) {
-        this.regTime = regTime;
+        this.regTime = regTime == null ? null : regTime.trim();
     }
 
     public String getLastTime() {
@@ -96,22 +109,27 @@ public class User {
     }
 
     public void setLastTime(String lastTime) {
-        this.lastTime = lastTime;
+        this.lastTime = lastTime == null ? null : lastTime.trim();
     }
 
     @Override
     public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", loginName='" + loginName + '\'' +
-                ", password='" + password + '\'' +
-                ", userName='" + userName + '\'' +
-                ", sex=" + sex +
-                ", birthday='" + birthday + '\'' +
-                ", email='" + email + '\'' +
-                ", description='" + description + '\'' +
-                ", regTime='" + regTime + '\'' +
-                ", lastTime='" + lastTime + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", loginName=").append(loginName);
+        sb.append(", password=").append(password);
+        sb.append(", userName=").append(userName);
+        sb.append(", sex=").append(sex);
+        sb.append(", birthday=").append(birthday);
+        sb.append(", email=").append(email);
+        sb.append(", description=").append(description);
+        sb.append(", regTime=").append(regTime);
+        sb.append(", lastTime=").append(lastTime);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

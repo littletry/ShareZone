@@ -1,13 +1,7 @@
 package top.littletry.sharezone.service.impl;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;
-import top.littletry.sharezone.dao.UserDao;
-import top.littletry.sharezone.model.User;
 import top.littletry.sharezone.service.UserService;
-
-import javax.annotation.Resource;
 
 /**
  * Created by LittleTry

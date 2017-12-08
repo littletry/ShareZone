@@ -51,11 +51,11 @@ public class TestUser {
         user.setPassword("ht950905");
         user.setUserName("王五");
         user.setSex(0);
-        user.setBirthday(DateTimeUtils.convert2String(new Date()));
+        user.setBirthday(DateTimeUtil.convert2String(new Date()));
         user.setEmail("1109394634@qq.com");
         user.setDescription("我是一个很好的人，很好很好的那种那种");
-        user.setRegTime(DateTimeUtils.convert2String(new Date()));
-        user.setLastTime(DateTimeUtils.convert2String(new Date()));
+        user.setRegTime(DateTimeUtil.convert2String(new Date()));
+        user.setLastTime(DateTimeUtil.convert2String(new Date()));
         userMapper.insert(user);
         System.out.println((User)userMapper.selectByPrimaryKey(id));
     }

@@ -1,4 +1,4 @@
-package top.littletry.sharezone.common;
+package top.littletry.sharezone.common.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author LittleTry
  */
-public class DateTimeUtils {
+public class DateTimeUtil {
     /**
      * 时间格式转换成时间字符串
      *

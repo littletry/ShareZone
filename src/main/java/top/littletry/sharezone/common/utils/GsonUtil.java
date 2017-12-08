@@ -1,4 +1,4 @@
-package top.littletry.sharezone.common;
+package top.littletry.sharezone.common.utils;
 
 
 import com.google.gson.Gson;
@@ -15,8 +15,8 @@ import java.util.List;
  *
  * @author LittleTry
  */
-public class GsonUtils {
-    private static Log log = LogFactory.getLog(GsonUtils.class);
+public class GsonUtil {
+    private static Log log = LogFactory.getLog(GsonUtil.class);
 
     /**
      * 把json数据转换为指定的对象

@@ -11,21 +11,15 @@ import java.io.Serializable;
  * @author LittleTry
  */
 public class Content implements Serializable {
-    private String id;
-
-    private String title;
-
-    private String detail;
-
-    private String createTime;
-
-    private String imageUrl;
-
-    private String videoUrl;
-
-    private String userId;
 
     private static final long serialVersionUID = 1L;
+    private String id;
+    private String title;
+    private String detail;
+    private String createTime;
+    private String imageUrl;
+    private String videoUrl;
+    private String userId;
 
     public String getId() {
         return id;
@@ -85,19 +79,15 @@ public class Content implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", title=").append(title);
-        sb.append(", detail=").append(detail);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", imageUrl=").append(imageUrl);
-        sb.append(", videoUrl=").append(videoUrl);
-        sb.append(", userId=").append(userId);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
+        final StringBuffer sb = new StringBuffer("Content{");
+        sb.append("id='").append(id).append('\'');
+        sb.append(", title='").append(title).append('\'');
+        sb.append(", detail='").append(detail).append('\'');
+        sb.append(", createTime='").append(createTime).append('\'');
+        sb.append(", imageUrl='").append(imageUrl).append('\'');
+        sb.append(", videoUrl='").append(videoUrl).append('\'');
+        sb.append(", userId='").append(userId).append('\'');
+        sb.append('}');
         return sb.toString();
     }
 }

@@ -1,32 +1,29 @@
 package top.littletry.sharezone.model;
 
-
 import java.io.Serializable;
 
-/**
- * Created by LittleTry
- * Date: 2017-11-29
- * Time: 14:24
- *
- * @author LittleTry
- */
 public class User implements Serializable {
-
-    private static final long serialVersionUID = 1L;
     private String id;
+
     private String loginName;
+
     private String password;
+
     private String userName;
+
     private Integer sex;
+
     private String birthday;
+
     private String email;
+
     private String description;
+
     private String regTime;
+
     private String lastTime;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
+    private static final long serialVersionUID = 1L;
 
     public String getId() {
         return id;
@@ -110,18 +107,22 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("User{");
-        sb.append("id='").append(id).append('\'');
-        sb.append(", loginName='").append(loginName).append('\'');
-        sb.append(", password='").append(password).append('\'');
-        sb.append(", userName='").append(userName).append('\'');
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", loginName=").append(loginName);
+        sb.append(", password=").append(password);
+        sb.append(", userName=").append(userName);
         sb.append(", sex=").append(sex);
-        sb.append(", birthday='").append(birthday).append('\'');
-        sb.append(", email='").append(email).append('\'');
-        sb.append(", description='").append(description).append('\'');
-        sb.append(", regTime='").append(regTime).append('\'');
-        sb.append(", lastTime='").append(lastTime).append('\'');
-        sb.append('}');
+        sb.append(", birthday=").append(birthday);
+        sb.append(", email=").append(email);
+        sb.append(", description=").append(description);
+        sb.append(", regTime=").append(regTime);
+        sb.append(", lastTime=").append(lastTime);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
         return sb.toString();
     }
 }

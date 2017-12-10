@@ -1,8 +1,17 @@
 package top.littletry.sharezone.dao;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import top.littletry.sharezone.common.utils.DateTimeUtil;
+import top.littletry.sharezone.model.User;
+import top.littletry.sharezone.model.UserQuery;
+
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Intellij Idea
@@ -15,14 +24,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring-mybatis.xml")
 public class TestUser {
-    //采用mybatis逆向工程生成的代码来使用的，现已注释，准备后面手写SQL，不依赖自动生成
-    /*@Autowired
+
+    @Autowired
     private UserMapper userMapper;
 
-    *//**
+    /**
      * 通过id查询用户
      * @throws Exception
-     *//*
+     */
     @Test
     public void SelectUserById() throws Exception{
         User user = userMapper.selectByPrimaryKey("1");
@@ -49,8 +58,8 @@ public class TestUser {
         user.setId(id);
         user.setLoginName("ht");
         user.setPassword("ht950905");
-        user.setUserName("王五");
-        user.setSex(0);
+        user.setUserName("张三");
+        user.setSex(1);
         user.setBirthday(DateTimeUtil.convert2String(new Date()));
         user.setEmail("1109394634@qq.com");
         user.setDescription("我是一个很好的人，很好很好的那种那种");
@@ -61,18 +70,18 @@ public class TestUser {
     }
     @Test
     public void updateUser() throws Exception{
-        *//**
+        /**
          * 更新要先查出来再更新
-         *//*
+         */
         UserQuery userQuery = new UserQuery();
         userQuery.createCriteria().andUserNameEqualTo("王五");
         List<User> users = userMapper.selectByExample(userQuery);
         User user = users.get(0);
         user.setUserName("小李子");
         userMapper.updateByPrimaryKey(user);
-        *//**
+        /**
          * 查询出刚插入的记录
-         *//*
+         */
         UserQuery userQuery1 = new UserQuery();
         userQuery1.createCriteria().andUserNameLike("%小%");
         List<User> userList = userMapper.selectByExample(userQuery1);
@@ -87,5 +96,4 @@ public class TestUser {
         userQuery.createCriteria().andUserNameEqualTo("小张");
         userMapper.deleteByExample(userQuery);
     }
-*/
 }

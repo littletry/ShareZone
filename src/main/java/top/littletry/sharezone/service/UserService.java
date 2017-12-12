@@ -10,4 +10,10 @@ import top.littletry.sharezone.model.User;
  */
 public interface UserService {
 
+    /**
+     * 用户注册
+     * @param user
+     */
+    void insertUser(User user);
+
 }

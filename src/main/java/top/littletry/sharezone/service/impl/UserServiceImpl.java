@@ -1,7 +1,14 @@
 package top.littletry.sharezone.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import top.littletry.sharezone.common.utils.ApplicationUtil;
+import top.littletry.sharezone.common.utils.DateTimeUtil;
+import top.littletry.sharezone.dao.UserMapper;
+import top.littletry.sharezone.model.User;
 import top.littletry.sharezone.service.UserService;
+
+import java.util.Date;
 
 /**
  * Created by LittleTry
@@ -12,4 +19,20 @@ import top.littletry.sharezone.service.UserService;
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
+    @Autowired
+    private UserMapper userMapper;
+
+    @Override
+    public void insertUser(User user) {
+        String id = ApplicationUtil.randomUUID();
+        String password = ApplicationUtil.md5Hex(user.getPassword());
+        String regTime = DateTimeUtil.convert2String(new Date());
+
+        user.setId(id);
+        user.setPassword(password);
+        user.setRegTime(regTime);
+        user.setLastTime(regTime);
+
+        userMapper.insert(user);
+    }
 }

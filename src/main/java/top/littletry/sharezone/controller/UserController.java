@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import top.littletry.sharezone.common.dto.RestResponse;
 import top.littletry.sharezone.model.User;
 import top.littletry.sharezone.service.UserService;
 
@@ -46,8 +47,11 @@ public class UserController {
      */
     @ApiOperation(value = "用户注册接口")
     @RequestMapping(value = "/user/_register",method = RequestMethod.PUT,produces = "application/json")
-    public void register(@RequestBody User user){
+    public RestResponse<String> register(@RequestBody User user){
+
         userService.insertUser(user);
+
+        return RestResponse.success();
     }
 
 }

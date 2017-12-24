@@ -24,6 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
     /**
      * 用户注册
      *
@@ -42,8 +43,10 @@ public class UserServiceImpl implements UserService {
 
         userMapper.insert(user);
     }
+
     /**
      * 用户登录
+     *
      * @param loginName
      * @param password
      * @return

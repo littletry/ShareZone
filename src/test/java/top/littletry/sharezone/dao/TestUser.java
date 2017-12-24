@@ -74,10 +74,10 @@ public class TestUser {
          * 更新要先查出来再更新
          */
         UserQuery userQuery = new UserQuery();
-        userQuery.createCriteria().andUserNameEqualTo("王五");
+        userQuery.createCriteria().andUserNameEqualTo("黄涛");
         List<User> users = userMapper.selectByExample(userQuery);
         User user = users.get(0);
-        user.setUserName("小李子");
+        user.setUserName("涛涛");
         userMapper.updateByPrimaryKey(user);
         /**
          * 查询出刚插入的记录

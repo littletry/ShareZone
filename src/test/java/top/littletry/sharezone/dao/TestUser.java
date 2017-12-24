@@ -25,13 +25,13 @@ import java.util.UUID;
 @ContextConfiguration("classpath:spring-mybatis.xml")
 public class TestUser {
 
-    @Autowired
+    /*@Autowired
     private UserMapper userMapper;
 
-    /**
+    *//**
      * 通过id查询用户
      * @throws Exception
-     */
+     *//*
     @Test
     public void SelectUserById() throws Exception{
         User user = userMapper.selectByPrimaryKey("1");
@@ -70,18 +70,18 @@ public class TestUser {
     }
     @Test
     public void updateUser() throws Exception{
-        /**
+        *//**
          * 更新要先查出来再更新
-         */
+         *//*
         UserQuery userQuery = new UserQuery();
         userQuery.createCriteria().andUserNameEqualTo("王五");
         List<User> users = userMapper.selectByExample(userQuery);
         User user = users.get(0);
         user.setUserName("小李子");
         userMapper.updateByPrimaryKey(user);
-        /**
+        *//**
          * 查询出刚插入的记录
-         */
+         *//*
         UserQuery userQuery1 = new UserQuery();
         userQuery1.createCriteria().andUserNameLike("%小%");
         List<User> userList = userMapper.selectByExample(userQuery1);
@@ -95,5 +95,5 @@ public class TestUser {
         UserQuery userQuery = new UserQuery();
         userQuery.createCriteria().andUserNameEqualTo("小张");
         userMapper.deleteByExample(userQuery);
-    }
+    }*/
 }

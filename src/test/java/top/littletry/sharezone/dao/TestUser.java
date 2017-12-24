@@ -21,8 +21,8 @@ import java.util.UUID;
  *
  * @author LittleTry
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:spring-mybatis.xml")
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration("classpath:spring-mybatis.xml")
 public class TestUser {
 
     /*@Autowired

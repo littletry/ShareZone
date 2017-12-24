@@ -16,6 +16,7 @@ import java.util.List;
  * Created by LittleTry
  * Date: 2017-11-29
  * Time: 14:25
+ *
  * @author LittleTry
  */
 @Service("userService")
@@ -23,7 +24,11 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
-
+    /**
+     * 用户注册
+     *
+     * @param user
+     */
     @Override
     public void insertUser(User user) {
         String id = ApplicationUtil.randomUUID();
@@ -37,7 +42,12 @@ public class UserServiceImpl implements UserService {
 
         userMapper.insert(user);
     }
-
+    /**
+     * 用户登录
+     * @param loginName
+     * @param password
+     * @return
+     */
     @Override
     public boolean selectUser(String loginName, String password) {
         String password1 = ApplicationUtil.md5Hex(password);
@@ -47,9 +57,9 @@ public class UserServiceImpl implements UserService {
 
         List<User> users = userMapper.selectByExample(userQuery);
 
-        if (users.size()>0){
+        if (users.size() > 0) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }

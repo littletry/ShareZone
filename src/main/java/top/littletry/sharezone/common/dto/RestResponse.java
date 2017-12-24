@@ -29,13 +29,14 @@ public class RestResponse<T> {
     public static RestResponse<String> failed(String message) {
         RestResponse<String> resp = new RestResponse<String>();
         resp.setSuccess(false);
-        resp.setData(message);
+        resp.setMessage(message);
         return resp;
     }
 
-    public static RestResponse<String> success() {
+    public static RestResponse<String> success(String message) {
         RestResponse<String> resp = new RestResponse<String>();
         resp.setSuccess(true);
+        resp.setMessage(message);
         return resp;
     }
 

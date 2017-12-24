@@ -16,4 +16,6 @@ public interface UserService {
      */
     void insertUser(User user);
 
+    boolean selectUser(String loginName,String password);
+
 }

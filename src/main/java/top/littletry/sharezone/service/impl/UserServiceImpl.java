@@ -6,9 +6,11 @@ import top.littletry.sharezone.common.utils.ApplicationUtil;
 import top.littletry.sharezone.common.utils.DateTimeUtil;
 import top.littletry.sharezone.dao.UserMapper;
 import top.littletry.sharezone.model.User;
+import top.littletry.sharezone.model.UserQuery;
 import top.littletry.sharezone.service.UserService;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by LittleTry
@@ -34,5 +36,21 @@ public class UserServiceImpl implements UserService {
         user.setLastTime(regTime);
 
         userMapper.insert(user);
+    }
+
+    @Override
+    public boolean selectUser(String loginName, String password) {
+        String password1 = ApplicationUtil.md5Hex(password);
+
+        UserQuery userQuery = new UserQuery();
+        userQuery.createCriteria().andLoginNameEqualTo(loginName).andPasswordEqualTo(password1);
+
+        List<User> users = userMapper.selectByExample(userQuery);
+
+        if (users.size()>0){
+            return true;
+        }else {
+            return false;
+        }
     }
 }

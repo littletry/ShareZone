@@ -21,6 +21,7 @@ import java.util.Date;
  * Created by LittleTry
  * Date: 2017-11-29
  * Time: 14:24
+ *
  * @author LittleTry
  */
 @Controller
@@ -31,13 +32,20 @@ public class UserController {
 
     /**
      * 用户登录接口
+     *
      * @param loginName
      * @param password
      */
     @ApiOperation(value = "用户登录接口")
-    @RequestMapping(value = "/user/_login",method = RequestMethod.POST,produces = "application/json")
-    public void login(@RequestParam("loginName") String loginName,@RequestParam("password") String password){
-
+    @ResponseBody
+    @RequestMapping(value = "/user/_login", method = RequestMethod.POST, produces = "application/json")
+    public RestResponse<String> login(@RequestParam("loginName") String loginName, @RequestParam("password") String password) {
+        boolean checkUser = userService.selectUser(loginName, password);
+        if (checkUser) {
+            return RestResponse.success("用户登录成功");
+        } else {
+            return RestResponse.failed("登录失败，请检查用户名或密码");
+        }
     }
 
     /**
@@ -46,12 +54,13 @@ public class UserController {
      * @param user
      */
     @ApiOperation(value = "用户注册接口")
-    @RequestMapping(value = "/user/_register",method = RequestMethod.PUT,produces = "application/json")
-    public RestResponse<String> register(@RequestBody User user){
+    @ResponseBody
+    @RequestMapping(value = "/user/_register", method = RequestMethod.PUT, produces = "application/json")
+    public RestResponse<String> register(@RequestBody User user) {
 
         userService.insertUser(user);
 
-        return RestResponse.success();
+        return RestResponse.success("用户注册成功");
     }
 
 }

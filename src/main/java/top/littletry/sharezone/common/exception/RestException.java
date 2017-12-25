@@ -15,7 +15,7 @@ public class RestException extends Exception {
 
     public RestException(String message, Exception cause) {
         super(message, cause);
-        log.debug(message+":"+cause);
+        log.debug(message + ":" + cause);
     }
 
     public RestException(String message) {

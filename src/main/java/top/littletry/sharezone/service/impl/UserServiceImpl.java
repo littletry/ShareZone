@@ -1,16 +1,16 @@
 package top.littletry.sharezone.service.impl;
 
+import com.xiaoleilu.hutool.crypto.digest.DigestUtil;
+import com.xiaoleilu.hutool.date.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import top.littletry.sharezone.common.utils.ApplicationUtil;
-import top.littletry.sharezone.common.utils.DateTimeUtil;
 import top.littletry.sharezone.dao.UserMapper;
 import top.littletry.sharezone.model.User;
 import top.littletry.sharezone.model.UserQuery;
 import top.littletry.sharezone.service.UserService;
 
-import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by LittleTry
@@ -32,9 +32,10 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void insertUser(User user) {
-        String id = ApplicationUtil.randomUUID();
-        String password = ApplicationUtil.md5Hex(user.getPassword());
-        String regTime = DateTimeUtil.convert2String(new Date());
+
+        String id = UUID.randomUUID().toString();
+        String password = DigestUtil.md5Hex(user.getPassword());
+        String regTime = DateUtil.date().toString();
 
         user.setId(id);
         user.setPassword(password);
@@ -53,7 +54,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean selectUser(String loginName, String password) {
-        String password1 = ApplicationUtil.md5Hex(password);
+        String password1 = DigestUtil.md5Hex(password);
 
         UserQuery userQuery = new UserQuery();
         userQuery.createCriteria().andLoginNameEqualTo(loginName).andPasswordEqualTo(password1);

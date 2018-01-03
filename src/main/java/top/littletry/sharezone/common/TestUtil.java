@@ -1,6 +1,7 @@
 package top.littletry.sharezone.common;
 
-import top.littletry.sharezone.common.utils.ApplicationUtil;
+import com.xiaoleilu.hutool.crypto.digest.DigestUtil;
+import com.xiaoleilu.hutool.date.DateUtil;
 
 /**
  * Created by Intellij Idea
@@ -11,7 +12,16 @@ import top.littletry.sharezone.common.utils.ApplicationUtil;
  * @author LittleTry
  */
 public class TestUtil {
-    public static void main(String[] args){
-        System.out.println(ApplicationUtil.randomUUID());
+
+    public static void main(String[] args) {
+        //md5摘要加密
+        System.out.println(DigestUtil.md5Hex("123456"));
+
+        //日期转换
+        System.out.println(DateUtil.today());
+        System.out.println(DateUtil.date().toString());
+
+
+
     }
 }

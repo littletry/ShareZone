@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
+Source Server         : 本机mysql
 Source Server Version : 50527
 Source Host           : localhost:3306
 Source Database       : sharezone
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2017-12-10 16:44:22
+Date: 2018-01-03 17:07:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,10 +31,6 @@ CREATE TABLE `content` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- ----------------------------
--- Records of content
--- ----------------------------
-
--- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
@@ -43,7 +39,7 @@ CREATE TABLE `user` (
   `login_name` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '登录用户名',
   `password` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户密码',
   `user_name` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户姓名',
-  `sex` int(2) DEFAULT NULL COMMENT '用户性别',
+  `sex` int(2) DEFAULT NULL COMMENT '用户性别（男0女1）',
   `birthday` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户生日',
   `email` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户邮箱',
   `description` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户个性描述信息',
@@ -51,7 +47,3 @@ CREATE TABLE `user` (
   `last_time` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户最后一次登录时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- ----------------------------
--- Records of user
--- ----------------------------

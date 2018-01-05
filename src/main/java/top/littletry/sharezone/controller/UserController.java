@@ -26,6 +26,7 @@ import java.util.Date;
  */
 @Controller
 @Api(value = "UserController", description = "用户接口")
+@RequestMapping(value = "/user")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -38,7 +39,7 @@ public class UserController {
      */
     @ApiOperation(value = "用户登录接口")
     @ResponseBody
-    @RequestMapping(value = "/user/_login", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/_login", method = RequestMethod.POST, produces = "application/json")
     public RestResponse<String> login(@RequestParam("loginName") String loginName, @RequestParam("password") String password) {
         boolean checkUser = userService.selectUser(loginName, password);
         if (checkUser) {
@@ -55,7 +56,7 @@ public class UserController {
      */
     @ApiOperation(value = "用户注册接口")
     @ResponseBody
-    @RequestMapping(value = "/user/_register", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/_register", method = RequestMethod.POST, produces = "application/json")
     public RestResponse<String> register(@RequestBody User user) {
 
         userService.insertUser(user);

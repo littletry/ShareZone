@@ -55,7 +55,7 @@ public class UserController {
      */
     @ApiOperation(value = "用户注册接口")
     @ResponseBody
-    @RequestMapping(value = "/user/_register", method = RequestMethod.PUT, produces = "application/json")
+    @RequestMapping(value = "/user/_register", method = RequestMethod.POST, produces = "application/json")
     public RestResponse<String> register(@RequestBody User user) {
 
         userService.insertUser(user);

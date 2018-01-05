@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import top.littletry.sharezone.common.dto.RestResponse;
@@ -39,7 +40,7 @@ public class UserController {
      */
     @ApiOperation(value = "用户登录",notes = "用户登录")
     @ResponseBody
-    @RequestMapping(value = "/_login", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/_login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public RestResponse<String> login(
             @RequestParam("loginName") String loginName,
             @RequestParam("password") String password) {
@@ -58,7 +59,7 @@ public class UserController {
      */
     @ApiOperation(value = "用户注册",notes = "用户注册")
     @ResponseBody
-    @RequestMapping(value = "/_register", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/_register", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public RestResponse<String> register(
             @RequestBody User user) {
 
@@ -76,7 +77,7 @@ public class UserController {
      */
     @ApiOperation(value = "用户密码更新",notes = "用户密码更新")
     @ResponseBody
-    @RequestMapping(value = "/_resetPassword",method = RequestMethod.PUT,produces = "application/json")
+    @RequestMapping(value = "/_resetPassword",method = RequestMethod.PUT,produces = MediaType.APPLICATION_JSON_VALUE)
     public RestResponse<String> update(
             @RequestParam("loginName") String loginName,
             @RequestParam("oldPassword") String oldPassword,

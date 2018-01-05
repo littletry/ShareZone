@@ -3,3 +3,7 @@
 /src/test/test.iml
 /target/
 /catalina.base_IS_UNDEFINED/
+/catalina.base_IS_UNDEFINED/logs/user_center/business.log
+/catalina.base_IS_UNDEFINED/logs/user_center/metrics.log
+/catalina.base_IS_UNDEFINED/logs/user_center/sysusercenter.log
+/catalina.base_IS_UNDEFINED/logs/user_center/usercenter.log

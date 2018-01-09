@@ -1,23 +1,57 @@
 package top.littletry.sharezone.model;
 
+import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.validator.constraints.NotBlank;
+
 import java.io.Serializable;
 
+/**
+ * Created by Intellij Idea
+ * User：LittleTry
+ * Date：2018/1/9
+ * Time: 22:41
+ *
+ * @author LittleTry
+ */
 public class Content implements Serializable {
+    /**
+     * 内容ID
+     */
+    @ApiModelProperty(value = "内容id", hidden = true)
     private String id;
-
+    /**
+     * 分享内容标题
+     */
+    @NotBlank(message = "分享内容标题不能为空")
+    @ApiModelProperty(value = "分享内容标题")
     private String title;
-
+    /**
+     * 分享内容详细信息
+     */
+    @ApiModelProperty(value = "分享内容详细信息")
     private String detail;
-
+    /**
+     * 创建时间
+     */
+    @ApiModelProperty(value = "创建时间",hidden = true)
     private String createTime;
-
+    /**
+     * 图片地址
+     */
+    @ApiModelProperty(value = "图片地址")
     private String imageUrl;
-
+    /**
+     * 视频地址
+     */
+    @ApiModelProperty(value = "视频地址")
     private String videoUrl;
-
+    /**
+     * 用户ID
+     */
+    @ApiModelProperty(value = "该条分享内容的用户ID")
     private String userId;
 
-    private static final long serialVersionUID = 1L;
+    private static final long SERIALIZABLEUID = 1L;
 
     public String getId() {
         return id;
@@ -88,7 +122,7 @@ public class Content implements Serializable {
         sb.append(", imageUrl=").append(imageUrl);
         sb.append(", videoUrl=").append(videoUrl);
         sb.append(", userId=").append(userId);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append(", SERIALIZABLEUID=").append(SERIALIZABLEUID);
         sb.append("]");
         return sb.toString();
     }

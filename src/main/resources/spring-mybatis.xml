@@ -37,6 +37,8 @@
         <property name="typeAliasesPackage" value="top.littletry.sharezone.model"/>
         <!-- 扫描sql配置文件:mapper需要的xml文件 -->
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <!--扫描mybatis-config里面加了一个打印sql的配置-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
     </bean>
 
     <!-- 配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->

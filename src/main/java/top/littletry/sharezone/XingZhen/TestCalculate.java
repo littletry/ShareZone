@@ -1,4 +1,4 @@
-package top.littletry.sharezone.common;
+package top.littletry.sharezone.XingZhen;
 
 import java.util.ArrayList;
 import java.util.Arrays;

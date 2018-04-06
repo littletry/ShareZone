@@ -1,6 +1,7 @@
 package top.littletry.sharezone.controller;
 
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,6 +21,7 @@ import top.littletry.sharezone.service.IUserService;
  * @since 2018-04-06
  */
 @Controller
+@Api(value = "UserController", description = "用户接口")
 @RequestMapping("/user")
 public class UserController {
 

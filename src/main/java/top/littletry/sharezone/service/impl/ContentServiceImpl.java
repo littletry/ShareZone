@@ -1,5 +1,6 @@
 package top.littletry.sharezone.service.impl;
 
+import com.xiaoleilu.hutool.util.StrUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -129,5 +130,29 @@ public class ContentServiceImpl implements ContentService{
             e.printStackTrace();
         }
         return checkUpload;
+    }
+
+    /**
+     * 根据用户查询用户所发表的分享内容
+     * @param userId
+     * @return
+     */
+    @Override
+    public List<Content> selectByUserId(String userId) {
+        ContentQuery contentQuery = new ContentQuery();
+        contentQuery.createCriteria().andUserIdEqualTo(userId);
+        List<Content> lists = contentMapper.selectByExample(contentQuery);
+        return lists;
+    }
+
+    /**
+     * 查询所有分享内容
+     * @return
+     */
+    @Override
+    public List<Content> selectAll() {
+        ContentQuery contentQuery = new ContentQuery();
+        List<Content> lists = contentMapper.selectByExample(contentQuery);
+        return lists;
     }
 }

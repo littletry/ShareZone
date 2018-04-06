@@ -67,4 +67,17 @@ public class ContentController {
             return "error";
         }
     }
+    @ApiOperation(value = "根据用户查询用户所发表的分享内容",notes = "根据用户查询用户所发表的分享内容")
+    @ResponseBody
+    @RequestMapping(value = "/select", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse selectByUserId(
+            @RequestParam String userId) {
+        return RestResponse.success(contentService.selectByUserId(userId));
+    }
+    @ApiOperation(value = "查询所有分享内容",notes = "查询所有分享内容")
+    @ResponseBody
+    @RequestMapping(value = "/all", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse selectAll() {
+        return RestResponse.success(contentService.selectAll());
+    }
 }

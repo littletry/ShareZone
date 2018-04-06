@@ -4,6 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 import top.littletry.sharezone.model.Content;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by LittleTry
@@ -37,5 +38,16 @@ public interface ContentService {
      */
     public boolean imageUpload(HttpServletRequest request, String contentId, MultipartFile[] file);
 
+    /**
+     * 根据用户查询用户所发表的分享内容
+     * @param userId
+     * @return
+     */
+    public List<Content> selectByUserId(String userId);
 
+    /**
+     * 查询所有分享内容
+     * @return
+     */
+    public List<Content> selectAll();
 }

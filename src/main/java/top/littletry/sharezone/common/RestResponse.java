@@ -20,21 +20,21 @@ public class RestResponse<T> {
     private T content;
 
     public static <T> RestResponse<T> success(T content) {
-        RestResponse<T> resp = new RestResponse<T>();
+        RestResponse<T> resp = new RestResponse<>();
         resp.setCode(0);
         resp.setContent(content);
         return resp;
     }
 
     public static RestResponse<String> failed(String message) {
-        RestResponse<String> resp = new RestResponse<String>();
+        RestResponse<String> resp = new RestResponse<>();
         resp.setCode(502);
         resp.setMessage(message);
         return resp;
     }
 
     public static RestResponse<String> success(String message) {
-        RestResponse<String> resp = new RestResponse<String>();
+        RestResponse<String> resp = new RestResponse<>();
         resp.setCode(0);
         resp.setMessage(message);
         return resp;

@@ -125,7 +125,7 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
     public List<Content> selectByUserId(String userId, int page) {
         List<Content> contents = contentMapper.selectPage(
                 new Page<Content>(page,10),
-                new EntityWrapper<Content>().eq("user_id", userId)
+                new EntityWrapper<Content>().eq("user_id", userId).orderBy("create_time",false)
         );
         return contents;
     }
@@ -138,7 +138,7 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
     public List<Content> selectAll(int page) {
         List<Content> contents = contentMapper.selectPage(
                 new Page<Content>(page,10),
-                new EntityWrapper<>()
+                new EntityWrapper<Content>().orderBy("create_time",false)
         );
         return contents;
     }

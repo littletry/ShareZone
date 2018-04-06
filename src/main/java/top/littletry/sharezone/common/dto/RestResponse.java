@@ -12,40 +12,40 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel
 public class RestResponse<T> {
-    @ApiModelProperty(value = "请求是否成功")
-    private boolean success;
-    @ApiModelProperty(value = "请求失败返回的消息")
+    @ApiModelProperty(value = "请求返回code")
+    private int code;
+    @ApiModelProperty(value = "请求返回的message")
     private String message;
-    @ApiModelProperty(value = "请求返回的数据内容")
-    private T data;
+    @ApiModelProperty(value = "请求返回的content")
+    private T content;
 
-    public static <T> RestResponse<T> success(T data) {
+    public static <T> RestResponse<T> success(T content) {
         RestResponse<T> resp = new RestResponse<T>();
-        resp.setSuccess(true);
-        resp.setData(data);
+        resp.setCode(0);
+        resp.setContent(content);
         return resp;
     }
 
     public static RestResponse<String> failed(String message) {
         RestResponse<String> resp = new RestResponse<String>();
-        resp.setSuccess(false);
+        resp.setCode(502);
         resp.setMessage(message);
         return resp;
     }
 
     public static RestResponse<String> success(String message) {
         RestResponse<String> resp = new RestResponse<String>();
-        resp.setSuccess(true);
+        resp.setCode(0);
         resp.setMessage(message);
         return resp;
     }
 
-    public boolean isSuccess() {
-        return success;
+    public int getCode() {
+        return code;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public String getMessage() {
@@ -56,12 +56,12 @@ public class RestResponse<T> {
         this.message = message;
     }
 
-    public T getData() {
-        return data;
+    public T getContent() {
+        return content;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setContent(T content) {
+        this.content = content;
     }
 
 }

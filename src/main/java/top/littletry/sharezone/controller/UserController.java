@@ -35,9 +35,12 @@ public class UserController {
     public RestResponse<String> register(
             @RequestBody User user) {
 
-        userService.insert(user);
+        boolean exist = userService.insertUser(user);
+        if (exist) {
+            return RestResponse.success("用户注册成功");
+        } else {
+            return RestResponse.failed("用户已存在");
+        }
 
-        return RestResponse.success("用户注册成功");
     }
-
 }

@@ -13,4 +13,10 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface IUserService extends IService<User> {
 
+    /**
+     * 用户注册
+     * @param user
+     * @return
+     */
+    boolean insertUser(User user);
 }

@@ -71,7 +71,6 @@ public class Generater {
                 .setEntityLombokModel(false)
                 .setDbColumnUnderline(true)
                 .setRestControllerStyle(true)
-                .setSuperControllerClass("top.littletry.sharezone.common.base.BaseController")
                 .setNaming(NamingStrategy.underline_to_camel)
                 .setControllerMappingHyphenStyle(true)
                 .setInclude(tableNames);

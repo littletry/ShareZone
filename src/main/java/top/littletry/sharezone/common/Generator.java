@@ -27,7 +27,7 @@ public class Generator {
     /**
      * 模块 方法级别的驼峰命名  用于变量名
      */
-    private static final String MODULES_NAME = "user" ;
+    private static final String MODULES_NAME = "content" ;
 
     private static final String AUTHOR = "littletry" ;
 
@@ -36,7 +36,7 @@ public class Generator {
         /*
          * 表名以及包名
          */
-        generateByTables(PACKAGE_NAME, "user");
+        generateByTables(PACKAGE_NAME, "content");
     }
 
     private static void generateByTables(String packageName, String... tableNames) {

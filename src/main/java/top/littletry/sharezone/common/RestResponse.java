@@ -1,4 +1,4 @@
-package top.littletry.sharezone.common.dto;
+package top.littletry.sharezone.common;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

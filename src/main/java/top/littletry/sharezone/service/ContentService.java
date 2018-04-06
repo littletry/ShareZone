@@ -1,9 +1,6 @@
 package top.littletry.sharezone.service;
 
-import org.springframework.web.multipart.MultipartFile;
 import top.littletry.sharezone.model.Content;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by LittleTry
@@ -20,22 +17,5 @@ public interface ContentService {
      * @return
      */
     boolean insertContent(Content content);
-
-    /**
-     * 上传单个文件
-     * @param contentId
-     * @param file
-     * @return
-     */
-    public boolean videoUpload(HttpServletRequest request, String contentId, MultipartFile file);
-
-    /**
-     * 上传单个文件
-     * @param contentId
-     * @param file
-     * @return
-     */
-    public boolean imageUpload(HttpServletRequest request, String contentId, MultipartFile[] file);
-
 
 }

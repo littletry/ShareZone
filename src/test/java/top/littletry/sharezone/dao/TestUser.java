@@ -1,17 +1,9 @@
 package top.littletry.sharezone.dao;
 
-import com.xiaoleilu.hutool.date.DateUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import top.littletry.sharezone.model.User;
-import top.littletry.sharezone.model.UserQuery;
-
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by Intellij Idea

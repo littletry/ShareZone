@@ -1,81 +1,71 @@
 package top.littletry.sharezone.model;
 
-import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.validator.constraints.NotBlank;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
 
 import java.io.Serializable;
 
 /**
- * Created by Intellij Idea
- * User：LittleTry
- * Date：2018/1/9
- * Time: 22:41
+ * <p>
+ * 
+ * </p>
  *
- * @author LittleTry
+ * @author littletry
+ * @since 2018-04-06
  */
-public class User implements Serializable {
+@TableName("user")
+public class User extends Model<User> {
+
+    private static final long serialVersionUID = 1L;
+
     /**
-     * 用户ID
+     * 用户唯一标识
      */
-    @ApiModelProperty(value = "用户id",hidden = true)
     private String id;
     /**
      * 登录用户名
      */
-    @NotBlank(message = "登录用户名不能为空")
-    @ApiModelProperty(value = "登录用户名")
     private String loginName;
     /**
      * 用户密码
      */
-    @NotBlank(message = "用户登录密码不能为空")
-    @ApiModelProperty(value = "用户登录密码")
     private String password;
     /**
      * 用户姓名
      */
-    @NotBlank(message = "用户姓名不能为空")
-    @ApiModelProperty(value = "用户姓名")
     private String userName;
     /**
-     * 用户性别
+     * 用户性别（男0女1）
      */
-    @ApiModelProperty(value = "用户性别")
     private Integer sex;
     /**
      * 用户生日
      */
-    @ApiModelProperty(value = "用户生日")
     private String birthday;
     /**
      * 用户邮箱
      */
-    @ApiModelProperty(value = "用户邮箱")
     private String email;
     /**
      * 用户个性描述信息
      */
-    @ApiModelProperty(value = "用户个性描述信息")
     private String description;
     /**
      * 用户注册时间
      */
-    @ApiModelProperty(value = "用户注册时间",hidden = true)
     private String regTime;
     /**
      * 用户最后一次登录时间
      */
-    @ApiModelProperty(value = "用户最后一次登录时间",hidden = true)
     private String lastTime;
 
-    private static final long SERIALIZABLEUID = 1L;
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+        this.id = id;
     }
 
     public String getLoginName() {
@@ -83,7 +73,7 @@ public class User implements Serializable {
     }
 
     public void setLoginName(String loginName) {
-        this.loginName = loginName == null ? null : loginName.trim();
+        this.loginName = loginName;
     }
 
     public String getPassword() {
@@ -91,7 +81,7 @@ public class User implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+        this.password = password;
     }
 
     public String getUserName() {
@@ -99,7 +89,7 @@ public class User implements Serializable {
     }
 
     public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+        this.userName = userName;
     }
 
     public Integer getSex() {
@@ -115,7 +105,7 @@ public class User implements Serializable {
     }
 
     public void setBirthday(String birthday) {
-        this.birthday = birthday == null ? null : birthday.trim();
+        this.birthday = birthday;
     }
 
     public String getEmail() {
@@ -123,7 +113,7 @@ public class User implements Serializable {
     }
 
     public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
+        this.email = email;
     }
 
     public String getDescription() {
@@ -131,7 +121,7 @@ public class User implements Serializable {
     }
 
     public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
+        this.description = description;
     }
 
     public String getRegTime() {
@@ -139,7 +129,7 @@ public class User implements Serializable {
     }
 
     public void setRegTime(String regTime) {
-        this.regTime = regTime == null ? null : regTime.trim();
+        this.regTime = regTime;
     }
 
     public String getLastTime() {
@@ -147,48 +137,27 @@ public class User implements Serializable {
     }
 
     public void setLastTime(String lastTime) {
-        this.lastTime = lastTime == null ? null : lastTime.trim();
+        this.lastTime = lastTime;
+    }
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append("[");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", loginName=").append(loginName);
-        sb.append(", password=").append(password);
-        sb.append(", userName=").append(userName);
-        sb.append(", sex=").append(sex);
-        sb.append(", birthday=").append(birthday);
-        sb.append(", email=").append(email);
-        sb.append(", description=").append(description);
-        sb.append(", regTime=").append(regTime);
-        sb.append(", lastTime=").append(lastTime);
-        sb.append(", SERIALIZABLEUID").append(SERIALIZABLEUID);
-        sb.append("]");
-        return sb.toString();
+        return "User{" +
+        ", id=" + id +
+        ", loginName=" + loginName +
+        ", password=" + password +
+        ", userName=" + userName +
+        ", sex=" + sex +
+        ", birthday=" + birthday +
+        ", email=" + email +
+        ", description=" + description +
+        ", regTime=" + regTime +
+        ", lastTime=" + lastTime +
+        "}";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

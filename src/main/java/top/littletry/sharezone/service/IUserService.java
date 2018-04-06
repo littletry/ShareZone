@@ -19,4 +19,12 @@ public interface IUserService extends IService<User> {
      * @return
      */
     boolean insertUser(User user);
+
+    /**
+     * 用户登录
+     * @param loginName
+     * @param password
+     * @return
+     */
+    boolean selectUser(String loginName, String password);
 }

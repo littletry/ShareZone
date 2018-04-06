@@ -53,4 +53,24 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             return true;
         }
     }
+
+    /**
+     * 用户登录
+     * @param loginName
+     * @param password
+     * @return
+     */
+    @Override
+    public boolean selectUser(String loginName, String password) {
+        String password1 = DigestUtil.md5Hex(password);
+        List<User> lists = userMapper.selectList(
+                new EntityWrapper<User>().eq("login_name",loginName)
+                        .eq("password",password1)
+        );
+        if (lists.size() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

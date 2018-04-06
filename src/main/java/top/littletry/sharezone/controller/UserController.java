@@ -4,12 +4,9 @@ package top.littletry.sharezone.controller;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import top.littletry.sharezone.common.RestResponse;
 import top.littletry.sharezone.model.User;
 import top.littletry.sharezone.service.IUserService;
@@ -42,5 +39,18 @@ public class UserController {
             return RestResponse.failed("用户已存在");
         }
 
+    }
+    @ApiOperation(value = "用户登录",notes = "用户登录")
+    @ResponseBody
+    @RequestMapping(value = "/_login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse<String> login(
+            @RequestParam("loginName") String loginName,
+            @RequestParam("password") String password) {
+        boolean checkUser = userService.selectUser(loginName, password);
+        if (checkUser) {
+            return RestResponse.success("用户登录成功");
+        } else {
+            return RestResponse.failed("登录失败，请检查用户名或密码");
+        }
     }
 }

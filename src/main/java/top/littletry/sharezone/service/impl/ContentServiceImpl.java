@@ -117,7 +117,7 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
     }
 
     /**
-     * 根据用户查询用户所发表的分享内容
+     * 根据用户id查询用户所发表的分享内容
      * @param userId
      * @return
      */

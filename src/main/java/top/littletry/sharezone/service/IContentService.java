@@ -36,7 +36,7 @@ public interface IContentService extends IService<Content> {
     boolean imageUpload(HttpServletRequest request, String contentId, MultipartFile[] files);
 
     /**
-     * 根据用户查询用户所发表的分享内容
+     * 根据用户id查询用户所发表的分享内容
      * @param userId
      * @param page
      * @return

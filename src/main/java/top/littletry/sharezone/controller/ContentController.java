@@ -63,7 +63,7 @@ public class ContentController {
         }
     }
 
-    @ApiOperation(value = "根据用户查询用户所发表的分享内容",notes = "根据用户查询用户所发表的分享内容")
+    @ApiOperation(value = "根据用户id查询用户所发表的分享内容",notes = "根据用户id查询用户所发表的分享内容")
     @ResponseBody
     @RequestMapping(value = "/select", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
     public RestResponse selectByUserId(

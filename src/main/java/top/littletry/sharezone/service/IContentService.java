@@ -5,6 +5,7 @@ import top.littletry.sharezone.model.Content;
 import com.baomidou.mybatisplus.service.IService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * <p>
@@ -33,5 +34,19 @@ public interface IContentService extends IService<Content> {
      * @return
      */
     boolean imageUpload(HttpServletRequest request, String contentId, MultipartFile[] files);
+
+    /**
+     * 根据用户查询用户所发表的分享内容
+     * @param userId
+     * @param page
+     * @return
+     */
+    public List<Content> selectByUserId(String userId,int page);
+
+    /**
+     * 查询所有分享内容
+     * @return
+     */
+    public List<Content> selectAll(int page);
 
 }

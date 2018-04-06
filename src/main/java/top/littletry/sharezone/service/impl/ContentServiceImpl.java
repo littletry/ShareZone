@@ -1,6 +1,7 @@
 package top.littletry.sharezone.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 import top.littletry.sharezone.model.Content;
@@ -113,6 +114,33 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
             e.printStackTrace();
         }
         return checkUpload;
+    }
+
+    /**
+     * 根据用户查询用户所发表的分享内容
+     * @param userId
+     * @return
+     */
+    @Override
+    public List<Content> selectByUserId(String userId, int page) {
+        List<Content> contents = contentMapper.selectPage(
+                new Page<Content>(page,10),
+                new EntityWrapper<Content>().eq("user_id", userId)
+        );
+        return contents;
+    }
+
+    /**
+     * 查询所有分享内容
+     * @return
+     */
+    @Override
+    public List<Content> selectAll(int page) {
+        List<Content> contents = contentMapper.selectPage(
+                new Page<Content>(page,10),
+                new EntityWrapper<>()
+        );
+        return contents;
     }
 
 }

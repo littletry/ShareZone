@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import top.littletry.sharezone.common.RestResponse;
 import top.littletry.sharezone.service.IContentService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -61,5 +62,22 @@ public class ContentController {
             return "error";
         }
     }
+
+    @ApiOperation(value = "根据用户查询用户所发表的分享内容",notes = "根据用户查询用户所发表的分享内容")
+    @ResponseBody
+    @RequestMapping(value = "/select", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse selectByUserId(
+            @RequestParam String userId,
+            @RequestParam int page) {
+        return RestResponse.success(contentService.selectByUserId(userId, page));
+    }
+    @ApiOperation(value = "查询所有分享内容",notes = "查询所有分享内容")
+    @ResponseBody
+    @RequestMapping(value = "/all", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse selectAll(
+            @RequestParam int page) {
+        return RestResponse.success(contentService.selectAll(page));
+    }
+
 }
 

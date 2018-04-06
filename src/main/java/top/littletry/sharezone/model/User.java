@@ -2,6 +2,8 @@ package top.littletry.sharezone.model;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
+import io.swagger.annotations.ApiModelProperty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import java.io.Serializable;
 
@@ -21,42 +23,55 @@ public class User extends Model<User> {
     /**
      * 用户唯一标识
      */
+    @ApiModelProperty(value = "用户id",hidden = true)
     private String id;
     /**
      * 登录用户名
      */
+    @NotBlank(message = "登录用户名不能为空")
+    @ApiModelProperty(value = "登录用户名")
     private String loginName;
     /**
      * 用户密码
      */
+    @NotBlank(message = "用户登录密码不能为空")
+    @ApiModelProperty(value = "用户登录密码")
     private String password;
     /**
      * 用户姓名
      */
+    @NotBlank(message = "用户姓名不能为空")
+    @ApiModelProperty(value = "用户姓名")
     private String userName;
     /**
      * 用户性别（男0女1）
      */
+    @ApiModelProperty(value = "用户性别")
     private Integer sex;
     /**
      * 用户生日
      */
+    @ApiModelProperty(value = "用户生日")
     private String birthday;
     /**
      * 用户邮箱
      */
+    @ApiModelProperty(value = "用户邮箱")
     private String email;
     /**
      * 用户个性描述信息
      */
+    @ApiModelProperty(value = "用户个性描述信息")
     private String description;
     /**
      * 用户注册时间
      */
+    @ApiModelProperty(value = "用户注册时间",hidden = true)
     private String regTime;
     /**
      * 用户最后一次登录时间
      */
+    @ApiModelProperty(value = "用户最后一次登录时间",hidden = true)
     private String lastTime;
 
 

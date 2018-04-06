@@ -47,5 +47,19 @@ public class ContentController {
         }
     }
 
+    @ApiOperation(value = "上传一张或多张图片", notes = "上传一张或多张图片")
+    @ResponseBody
+    @RequestMapping(value = "/uploadImage", method = RequestMethod.POST, produces = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public String imageUpload(
+            HttpServletRequest request,
+            @RequestParam("contentId") String contentId,
+            @RequestParam("file")MultipartFile[] files) {
+        boolean checkUpload = contentService.imageUpload(request, contentId, files);
+        if (checkUpload) {
+            return "success";
+        } else {
+            return "error";
+        }
+    }
 }
 

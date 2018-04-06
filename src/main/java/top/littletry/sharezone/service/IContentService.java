@@ -25,4 +25,13 @@ public interface IContentService extends IService<Content> {
      */
     boolean videoUpload(HttpServletRequest request, String contentId, MultipartFile file);
 
+    /**
+     * 上传一张或多张图片
+     * @param request
+     * @param contentId
+     * @param files
+     * @return
+     */
+    boolean imageUpload(HttpServletRequest request, String contentId, MultipartFile[] files);
+
 }

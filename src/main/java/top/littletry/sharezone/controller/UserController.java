@@ -40,6 +40,7 @@ public class UserController {
         }
 
     }
+
     @ApiOperation(value = "用户登录",notes = "用户登录")
     @ResponseBody
     @RequestMapping(value = "/_login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -51,6 +52,21 @@ public class UserController {
             return RestResponse.success("用户登录成功");
         } else {
             return RestResponse.failed("登录失败，请检查用户名或密码");
+        }
+    }
+
+    @ApiOperation(value = "用户密码更新",notes = "用户密码更新")
+    @ResponseBody
+    @RequestMapping(value = "/_resetPassword", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse<String> update(
+            @RequestParam("loginName") String loginName,
+            @RequestParam("oldPassword") String oldPassword,
+            @RequestParam("newPassword") String newPassword) {
+        boolean updateUser = userService.updateUser(loginName, oldPassword, newPassword);
+        if (updateUser) {
+            return RestResponse.success("密码修改成功，请登录");
+        } else {
+            return RestResponse.failed("密码修改失败，请检查用户名或原密码是否正确");
         }
     }
 }

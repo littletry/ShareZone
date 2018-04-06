@@ -68,6 +68,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
                         .eq("password",password1)
         );
         if (lists.size() > 0) {
+            User user = lists.get(0);
+            user.setLastTime(DateUtil.date().toString());
+            userMapper.updateById(user);
             return true;
         } else {
             return false;

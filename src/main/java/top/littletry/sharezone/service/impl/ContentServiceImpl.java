@@ -116,6 +116,14 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
         return checkUpload;
     }
 
+    @Override
+    public boolean insertContent(Content content) {
+
+        //TODO 对分享内容进行检测，调用外部工具包检测内容是否包含敏感词汇，替换敏感词汇为*
+
+        return true;
+    }
+
     /**
      * 根据用户id查询用户所发表的分享内容
      * @param userId

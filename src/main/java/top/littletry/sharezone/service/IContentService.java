@@ -40,7 +40,7 @@ public interface IContentService extends IService<Content> {
      * @param content
      * @return
      */
-    boolean insertContent(Content content);
+    boolean insertContent(Content content, String userId);
 
     /**
      * 根据用户id查询用户所发表的分享内容

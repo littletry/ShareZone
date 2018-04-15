@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2018-01-03 17:07:51
+Date: 2018-04-15 18:07:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,6 +27,7 @@ CREATE TABLE `content` (
   `image_url` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '图片地址',
   `video_url` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '视频地址',
   `user_id` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户Id',
+  `check_publish` int(2) DEFAULT NULL COMMENT '审核状态',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -39,7 +40,7 @@ CREATE TABLE `user` (
   `login_name` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '登录用户名',
   `password` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户密码',
   `user_name` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户姓名',
-  `sex` int(2) DEFAULT NULL COMMENT '用户性别（男0女1）',
+  `sex` int(2) DEFAULT NULL COMMENT '用户性别（男0女1保密2）',
   `birthday` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户生日',
   `email` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户邮箱',
   `description` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '用户个性描述信息',

@@ -52,4 +52,11 @@ public interface IUserService extends IService<User> {
      * @return
      */
     boolean changeUser(User user);
+
+    /**
+     * 删除用户
+     * @param userId
+     * @return
+     */
+    boolean deleteUser(String userId);
 }

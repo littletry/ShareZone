@@ -90,4 +90,16 @@ public class UserController {
             return RestResponse.failed("用户修改失败");
         }
     }
+
+    @ApiOperation(value = "删除用户",notes = "删除用户")
+    @ResponseBody
+    @RequestMapping(value = "/delete",method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse deleteUser(@RequestParam String userId) {
+        boolean deleteUser = userService.deleteUser(userId);
+        if (deleteUser) {
+            return RestResponse.success("用户删除成功");
+        } else {
+            return RestResponse.failed("用户删除失败");
+        }
+    }
 }

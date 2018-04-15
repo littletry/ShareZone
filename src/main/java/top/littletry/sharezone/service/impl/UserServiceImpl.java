@@ -139,4 +139,23 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             return false;
         }
     }
+
+    /**
+     * 删除用户
+     * @param userId
+     * @return
+     */
+    @Override
+    public boolean deleteUser(String userId) {
+        List<User> lists = userMapper.selectList(
+                new EntityWrapper<User>().eq("id",userId)
+        );
+        if (lists.size() > 0) {
+            User user = lists.get(0);
+            userMapper.deleteById(user);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -78,4 +78,16 @@ public class UserController {
     public RestResponse selectAll(@RequestParam int page) {
         return RestResponse.success(userService.selectAll(page));
     }
+
+    @ApiOperation(value = "修改用户",notes = "修改用户")
+    @ResponseBody
+    @RequestMapping(value = "/change", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse changeUser(@RequestBody User user) {
+        boolean changeUser = userService.changeUser(user);
+        if (changeUser) {
+            return RestResponse.success("用户修改成功");
+        } else {
+            return RestResponse.failed("用户修改失败");
+        }
+    }
 }

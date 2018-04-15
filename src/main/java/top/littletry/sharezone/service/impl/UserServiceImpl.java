@@ -113,4 +113,30 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         );
         return users;
     }
+
+    /**
+     * 修改用户
+     * @param user
+     * @return
+     */
+    @Override
+    public boolean changeUser(User user) {
+        List<User> lists = userMapper.selectList(
+                new EntityWrapper<User>().eq("login_name",user.getLoginName())
+        );
+        if (lists.size() > 0) {
+            User user1 = lists.get(0);
+            user1.setBirthday(user.getBirthday());
+            user1.setDescription(user.getDescription());
+            user1.setEmail(user.getEmail());
+            user1.setLoginName(user.getLoginName());
+            user1.setPassword(DigestUtil.md5Hex(user.getPassword()));
+            user1.setSex(user.getSex());
+            user1.setUserName(user.getUserName());
+            userMapper.updateById(user1);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

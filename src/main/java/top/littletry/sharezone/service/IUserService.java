@@ -45,4 +45,11 @@ public interface IUserService extends IService<User> {
      * @return
      */
     List<User> selectAll(int page);
+
+    /**
+     * 修改用户
+     * @param user
+     * @return
+     */
+    boolean changeUser(User user);
 }

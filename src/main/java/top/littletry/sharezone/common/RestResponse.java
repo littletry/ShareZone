@@ -22,6 +22,7 @@ public class RestResponse<T> {
     public static <T> RestResponse<T> success(T content) {
         RestResponse<T> resp = new RestResponse<>();
         resp.setCode(0);
+        resp.setMessage("成功");
         resp.setContent(content);
         return resp;
     }

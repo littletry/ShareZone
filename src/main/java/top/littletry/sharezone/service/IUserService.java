@@ -3,6 +3,8 @@ package top.littletry.sharezone.service;
 import top.littletry.sharezone.model.User;
 import com.baomidou.mybatisplus.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -36,4 +38,11 @@ public interface IUserService extends IService<User> {
      * @return
      */
     boolean updateUser(String loginName, String oldPassword, String newPassword);
+
+    /**
+     * 分页查询用户信息
+     * @param page
+     * @return
+     */
+    List<User> selectAll(int page);
 }

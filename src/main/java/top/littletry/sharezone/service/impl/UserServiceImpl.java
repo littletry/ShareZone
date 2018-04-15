@@ -1,6 +1,7 @@
 package top.littletry.sharezone.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.xiaoleilu.hutool.crypto.digest.DigestUtil;
 import com.xiaoleilu.hutool.date.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,5 +99,18 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         } else {
             return false;
         }
+    }
+
+    /**
+     * 查询所有用户
+     * @return
+     */
+    @Override
+    public List<User> selectAll(int page) {
+        List<User> users = userMapper.selectPage(
+                new Page<User>(page,10),
+                new EntityWrapper<User>().orderBy("reg_time",false)
+        );
+        return users;
     }
 }

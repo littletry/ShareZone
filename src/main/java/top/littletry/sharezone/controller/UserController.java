@@ -71,4 +71,11 @@ public class UserController {
             return RestResponse.failed("密码修改失败，请检查用户名或原密码是否正确");
         }
     }
+
+    @ApiOperation(value = "查询所有用户",notes = "查询所有用户")
+    @ResponseBody
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse selectAll(@RequestParam int page) {
+        return RestResponse.success(userService.selectAll(page));
+    }
 }

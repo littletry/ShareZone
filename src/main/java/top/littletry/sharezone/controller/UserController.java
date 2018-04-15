@@ -30,7 +30,7 @@ public class UserController {
 
     @ApiOperation(value = "用户注册",notes = "用户注册")
     @ResponseBody
-    @RequestMapping(value = "/_register", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/register", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public RestResponse<String> register(
             @RequestBody User user) {
 
@@ -45,7 +45,7 @@ public class UserController {
 
     @ApiOperation(value = "用户登录",notes = "用户登录")
     @ResponseBody
-    @RequestMapping(value = "/_login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public RestResponse<String> login(
             @RequestParam("loginName") String loginName,
             @RequestParam("password") String password) {
@@ -59,7 +59,7 @@ public class UserController {
 
     @ApiOperation(value = "用户密码更新",notes = "用户密码更新")
     @ResponseBody
-    @RequestMapping(value = "/_resetPassword", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/resetPassword", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public RestResponse<String> update(
             @RequestParam("loginName") String loginName,
             @RequestParam("oldPassword") String oldPassword,

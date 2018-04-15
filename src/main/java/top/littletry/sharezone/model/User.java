@@ -44,7 +44,7 @@ public class User extends Model<User> {
     @ApiModelProperty(value = "用户姓名")
     private String userName;
     /**
-     * 用户性别（男0女1）
+     * 用户性别（男0女1保密2）
      */
     @ApiModelProperty(value = "用户性别")
     private Integer sex;
@@ -163,16 +163,16 @@ public class User extends Model<User> {
     @Override
     public String toString() {
         return "User{" +
-        ", id=" + id +
-        ", loginName=" + loginName +
-        ", password=" + password +
-        ", userName=" + userName +
-        ", sex=" + sex +
-        ", birthday=" + birthday +
-        ", email=" + email +
-        ", description=" + description +
-        ", regTime=" + regTime +
-        ", lastTime=" + lastTime +
-        "}";
+                ", id=" + id +
+                ", loginName=" + loginName +
+                ", password=" + password +
+                ", userName=" + userName +
+                ", sex=" + sex +
+                ", birthday=" + birthday +
+                ", email=" + email +
+                ", description=" + description +
+                ", regTime=" + regTime +
+                ", lastTime=" + lastTime +
+                "}";
     }
 }

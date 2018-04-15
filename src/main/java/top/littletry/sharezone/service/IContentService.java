@@ -48,12 +48,12 @@ public interface IContentService extends IService<Content> {
      * @param page
      * @return
      */
-    public List<Content> selectByUserId(String userId,int page);
+    List<Content> selectByUserId(String userId,int page);
 
     /**
      * 查询所有分享内容
      * @return
      */
-    public List<Content> selectAll(int page);
+    List<Content> selectAll(int page);
 
 }

@@ -52,8 +52,17 @@ public interface IContentService extends IService<Content> {
 
     /**
      * 查询所有分享内容
+     * @param page
      * @return
      */
     List<Content> selectAll(int page);
+
+    /**
+     * 修改审核状态
+     * @param contentId
+     * @param checkPublish
+     * @return
+     */
+    boolean changeContent(String contentId, int checkPublish);
 
 }

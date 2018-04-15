@@ -81,6 +81,7 @@ public class ContentController {
             @RequestParam int page) {
         return RestResponse.success(contentService.selectByUserId(userId, page));
     }
+
     @ApiOperation(value = "查询所有分享内容",notes = "查询所有分享内容")
     @ResponseBody
     @RequestMapping(value = "/all", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
@@ -89,5 +90,16 @@ public class ContentController {
         return RestResponse.success(contentService.selectAll(page));
     }
 
+    @ApiOperation(value = "修改审核状态", notes = "修改审核状态")
+    @ResponseBody
+    @RequestMapping(value = "/change", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse changeContent(@RequestParam String contentId, @RequestParam int checkPublish) {
+        boolean changeContent = contentService.changeContent(contentId, checkPublish);
+        if (changeContent) {
+            return RestResponse.success("审核成功");
+        } else {
+            return RestResponse.failed("审核失败");
+        }
+    }
 }
 

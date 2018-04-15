@@ -121,6 +121,7 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
 
         //TODO 对分享内容进行检测，调用外部工具包检测内容是否包含敏感词汇，替换敏感词汇为*
         content.setUserId(userId);
+        content.setCheckPublish(0);
         contentMapper.insert(content);
 
         return true;
@@ -153,4 +154,24 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
         return contents;
     }
 
+    /**
+     * 修改审核状态
+     * @param contentId
+     * @param checkPublish
+     * @return
+     */
+    @Override
+    public boolean changeContent(String contentId, int checkPublish) {
+        List<Content> lists = contentMapper.selectList(
+                new EntityWrapper<Content>().eq("id",contentId)
+        );
+        if (lists.size() > 0) {
+            Content content = lists.get(0);
+            content.setCheckPublish(checkPublish);
+            contentMapper.updateById(content);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

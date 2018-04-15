@@ -5,11 +5,11 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author littletry
- * @since 2018-04-06
+ * @since 2018-04-15
  */
 public class Content extends Model<Content> {
 
@@ -43,6 +43,10 @@ public class Content extends Model<Content> {
      * 用户Id
      */
     private String userId;
+    /**
+     * 审核状态
+     */
+    private Integer checkPublish;
 
 
     public String getId() {
@@ -101,6 +105,14 @@ public class Content extends Model<Content> {
         this.userId = userId;
     }
 
+    public Integer getCheckPublish() {
+        return checkPublish;
+    }
+
+    public void setCheckPublish(Integer checkPublish) {
+        this.checkPublish = checkPublish;
+    }
+
     @Override
     protected Serializable pkVal() {
         return this.id;
@@ -109,13 +121,14 @@ public class Content extends Model<Content> {
     @Override
     public String toString() {
         return "Content{" +
-        ", id=" + id +
-        ", title=" + title +
-        ", detail=" + detail +
-        ", createTime=" + createTime +
-        ", imageUrl=" + imageUrl +
-        ", videoUrl=" + videoUrl +
-        ", userId=" + userId +
-        "}";
+                ", id=" + id +
+                ", title=" + title +
+                ", detail=" + detail +
+                ", createTime=" + createTime +
+                ", imageUrl=" + imageUrl +
+                ", videoUrl=" + videoUrl +
+                ", userId=" + userId +
+                ", checkPublish=" + checkPublish +
+                "}";
     }
 }

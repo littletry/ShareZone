@@ -99,7 +99,7 @@ public class UserController {
         if (deleteUser) {
             return RestResponse.success("用户删除成功");
         } else {
-            return RestResponse.failed("用户删除失败");
+            return RestResponse.failed("用户删除失败,此用户不存在");
         }
     }
 }

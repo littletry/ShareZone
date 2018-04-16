@@ -25,9 +25,10 @@ var login = avalon.define({
             type: 'POST',
             url: '/ShareZone/user/login?loginName=' + login.loginName + '&password=' + psd,
             success: function (result) {
-                console.log(result);
                 if (result.code === 0) {
                     layer.alert(result.message);
+                    var location = "http://" + window.location.host + "/ShareZone/resources/main.html";
+                    window.location.href = location;
                 } else if (result.code === 501) {
                     layer.alert(result.message);
                 }

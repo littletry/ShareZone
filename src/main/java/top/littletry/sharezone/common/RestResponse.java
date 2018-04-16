@@ -29,7 +29,7 @@ public class RestResponse<T> {
 
     public static RestResponse<String> failed(String message) {
         RestResponse<String> resp = new RestResponse<>();
-        resp.setCode(502);
+        resp.setCode(501);
         resp.setMessage(message);
         return resp;
     }

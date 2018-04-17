@@ -28,7 +28,7 @@ public interface IUserService extends IService<User> {
      * @param password
      * @return
      */
-    boolean selectUser(String loginName, String password);
+    User selectUser(String loginName, String password);
 
     /**
      * 用户密码更新

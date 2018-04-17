@@ -1,6 +1,7 @@
 package top.littletry.sharezone.controller;
 
 
+import com.xiaoleilu.hutool.util.ObjectUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,12 +47,12 @@ public class UserController {
     @ApiOperation(value = "用户登录",notes = "用户登录")
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public RestResponse<String> login(
+    public RestResponse login(
             @RequestParam("loginName") String loginName,
             @RequestParam("password") String password) {
-        boolean checkUser = userService.selectUser(loginName, password);
-        if (checkUser) {
-            return RestResponse.success("用户登录成功");
+        User checkUser = userService.selectUser(loginName, password);
+        if (ObjectUtil.isNotNull(checkUser)) {
+            return RestResponse.success(checkUser);
         } else {
             return RestResponse.failed("登录失败，请检查用户名或密码");
         }

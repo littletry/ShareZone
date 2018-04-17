@@ -62,7 +62,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      * @return
      */
     @Override
-    public boolean selectUser(String loginName, String password) {
+    public User selectUser(String loginName, String password) {
         String password1 = DigestUtil.md5Hex(password);
         List<User> lists = userMapper.selectList(
                 new EntityWrapper<User>().eq("login_name",loginName)
@@ -72,9 +72,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             User user = lists.get(0);
             user.setLastTime(DateUtil.date().toString());
             userMapper.updateById(user);
-            return true;
+            return user;
         } else {
-            return false;
+            return null;
         }
     }
 

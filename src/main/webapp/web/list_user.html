@@ -23,7 +23,7 @@
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 系统管理 <span class="c-gray en">&gt;</span> 用户管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-<div class="page-container">
+<div class="page-container" ms-controller="listUser">
 	<table class="table table-border table-bordered table-bg">
 		<thead>
 			<tr>
@@ -31,7 +31,7 @@
 			</tr>
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="" value=""></th>
-				<th width="40">ID</th>
+				<th width="40">序号</th>
 				<th width="60">登录用户名</th>
 				<th width="60">用户姓名</th>
 				<th width="20">性别</th>
@@ -44,17 +44,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="text-c">
+			<tr class="text-c" ms-repeat="userList">
 				<td><input type="checkbox" value="1" name=""></td>
-				<td>1</td>
-				<td>ht</td>
-				<td>黄涛</td>
-				<td>男</td>
-				<td>2018-10-28</td>
-				<td>1109394634@qq.com</td>
-				<td>lalallalalalalalal</td>
-				<td>2018-04-16 19:22:05</td>
-				<td>2018-04-17 09:19:36</td>
+				<td>{{ $index+1 }}</td>
+				<td>{{ el.loginName }}</td>
+				<td>{{ el.userName }}</td>
+				<td>{{ el.sex === 0 ? '男': (el.sex === 1 ? '女': '保密') }}</td>
+				<td>{{ el.birthday }}</td>
+				<td>{{ el.email }}</td>
+				<td>{{ el.description }}</td>
+				<td>{{ el.regTime }}</td>
+				<td>{{ el.lastTime }}</td>
 				<td class="td-manage">
 					<a title="编辑" href="javascript:;" class="ml-5" style="text-decoration:none">
 						<i class="Hui-iconfont">&#xe6df;</i>
@@ -78,6 +78,6 @@
 <script type="text/javascript" src="/ShareZone/web/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/ShareZone/web/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript" src="/ShareZone/web/lib/avalon.js"></script>
-<script type="text/javascript" src="/ShareZone/web/lib/list_user.js"></script>
+<script type="text/javascript" src="/ShareZone/web/list_user.js"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 var login = avalon.define({
     $id: "login",
+    user: "",
     loginName: "",
     password: "",
     init: function () {
@@ -11,8 +12,6 @@ var login = avalon.define({
         }
     },
     userLogin: function () {
-        console.log('用户名',login.loginName);
-        console.log('密码',login.password);
         if (login.loginName.trim() === '' || login.loginName === null) {
             layer.alert('输入账户为空');
             return;
@@ -26,7 +25,8 @@ var login = avalon.define({
             url: '/ShareZone/user/login?loginName=' + login.loginName + '&password=' + psd,
             success: function (result) {
                 if (result.code === 0) {
-                    layer.alert(result.message);
+                    login.user = result.content.userName;
+                    $.cookie('user', login.user);
                     var location = "http://" + window.location.host + "/ShareZone/resources/main.html";
                     window.location.href = location;
                 } else if (result.code === 501) {

@@ -2,10 +2,15 @@ package top.littletry.sharezone.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.xiaoleilu.hutool.date.DateUtil;
+import com.xiaoleilu.hutool.util.RandomUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
+import top.littletry.sharezone.common.SensitiveWordFilter;
+import top.littletry.sharezone.dao.UserMapper;
 import top.littletry.sharezone.model.Content;
 import top.littletry.sharezone.dao.ContentMapper;
+import top.littletry.sharezone.model.User;
 import top.littletry.sharezone.service.IContentService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -28,6 +33,8 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
 
     @Autowired
     private ContentMapper contentMapper;
+    @Autowired
+    private UserMapper userMapper;
 
     /**
      * 上传视频
@@ -56,12 +63,12 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
                 file.transferTo(new File(resultPath));
                 checkUpload = true;
                 //把视频url保存到数据库对应分享内容的位置
-//                List<Content> lists = contentMapper.selectList(
-//                        new EntityWrapper<Content>().eq("id",contentId)
-//                );
-//                Content content = lists.get(0);
-//                content.setVideoUrl(resultPath);
-//                contentMapper.updateById(content);
+                List<Content> lists = contentMapper.selectList(
+                        new EntityWrapper<Content>().eq("id",contentId)
+                );
+                Content content = lists.get(0);
+                content.setVideoUrl(resultPath);
+                contentMapper.updateById(content);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -117,14 +124,18 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
     }
 
     @Override
-    public boolean insertContent(Content content, String userId) {
-
-        //TODO 对分享内容进行检测，调用外部工具包检测内容是否包含敏感词汇，替换敏感词汇为*
+    public String insertContent(Content content, String userId) {
+        //  对分享内容进行检测，调用外部工具包检测内容是否包含敏感词汇，替换敏感词汇标题为#，内容为*
+        SensitiveWordFilter filter = new SensitiveWordFilter();
+        content.setId(RandomUtil.randomUUID());
+        content.setTitle(filter.replaceSensitiveWord(content.getTitle(),1,"#"));
+        content.setDetail(filter.replaceSensitiveWord(content.getDetail(),2,"*"));
         content.setUserId(userId);
+        content.setCreateTime(DateUtil.date().toString());
         content.setCheckPublish(0);
         contentMapper.insert(content);
 
-        return true;
+        return content.getId();
     }
 
     /**

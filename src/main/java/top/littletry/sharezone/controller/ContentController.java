@@ -65,11 +65,11 @@ public class ContentController {
     @ResponseBody
     @RequestMapping(value = "/commit", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
     public RestResponse<String> commit(@RequestBody Content content, @RequestParam String userId) {
-        boolean checkContent = contentService.insertContent(content, userId);
-        if (checkContent) {
-            return RestResponse.success("发表成功");
+        String contentId = contentService.insertContent(content, userId);
+        if (contentId.length() > 0) {
+            return RestResponse.success(contentId);
         } else {
-            return RestResponse.failed("发表失败，请重试");
+            return RestResponse.failed("提交失败，请重新提交");
         }
     }
 

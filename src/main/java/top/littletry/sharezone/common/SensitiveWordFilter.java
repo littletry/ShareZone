@@ -1,5 +1,7 @@
 package top.littletry.sharezone.common;
 
+import org.springframework.stereotype.Service;
+
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -9,6 +11,7 @@ import java.util.Set;
  * 敏感词过滤
  * @author ht
  */
+@Service
 public class SensitiveWordFilter {
     private Map sensitiveWordMap = null;
     /**
@@ -161,6 +164,7 @@ public class SensitiveWordFilter {
         long endTime = System.currentTimeMillis();
         System.out.println("语句中包含敏感词的个数为：" + set.size() + "。包含：" + set);
         System.out.println("总共消耗时间为：" + (endTime - beginTime));
+        System.out.println(filter.replaceSensitiveWord(string,1,"*"));
     }
 
 

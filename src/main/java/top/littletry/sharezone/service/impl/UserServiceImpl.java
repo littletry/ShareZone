@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.xiaoleilu.hutool.crypto.digest.DigestUtil;
 import com.xiaoleilu.hutool.date.DateUtil;
+import com.xiaoleilu.hutool.util.RandomUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import top.littletry.sharezone.model.User;
 import top.littletry.sharezone.dao.UserMapper;
@@ -12,7 +13,6 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 /**
  * <p>
@@ -41,7 +41,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if (lists.size() > 0) {
             return false;
         } else {
-            String id = UUID.randomUUID().toString();
+            String id = RandomUtil.randomUUID();
             String password = DigestUtil.md5Hex(user.getPassword());
             String regTime = DateUtil.date().toString();
 

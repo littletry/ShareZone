@@ -75,7 +75,7 @@ public class UserController {
 
     @ApiOperation(value = "查询所有用户",notes = "查询所有用户")
     @ResponseBody
-    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/all", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public RestResponse selectAll(@RequestParam int page) {
         return RestResponse.success(userService.selectAll(page));
     }

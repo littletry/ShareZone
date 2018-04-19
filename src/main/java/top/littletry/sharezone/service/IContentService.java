@@ -3,6 +3,7 @@ package top.littletry.sharezone.service;
 import org.springframework.web.multipart.MultipartFile;
 import top.littletry.sharezone.model.Content;
 import com.baomidou.mybatisplus.service.IService;
+import top.littletry.sharezone.model.ContentDto;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -56,7 +57,7 @@ public interface IContentService extends IService<Content> {
      * @param page
      * @return
      */
-    List<Content> selectAll(int page);
+    List<ContentDto> selectAll(int page);
 
     /**
      * 修改审核状态

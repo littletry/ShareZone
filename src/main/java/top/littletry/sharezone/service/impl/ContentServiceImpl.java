@@ -10,6 +10,7 @@ import top.littletry.sharezone.common.SensitiveWordFilter;
 import top.littletry.sharezone.dao.UserMapper;
 import top.littletry.sharezone.model.Content;
 import top.littletry.sharezone.dao.ContentMapper;
+import top.littletry.sharezone.model.ContentDto;
 import top.littletry.sharezone.model.User;
 import top.littletry.sharezone.service.IContentService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
@@ -157,12 +158,26 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
      * @return
      */
     @Override
-    public List<Content> selectAll(int page) {
+    public List<ContentDto> selectAll(int page) {
         List<Content> contents = contentMapper.selectPage(
                 new Page<Content>(page,10),
                 new EntityWrapper<Content>().orderBy("create_time",false)
         );
-        return contents;
+        List<ContentDto> contentDtos = new ArrayList<>();
+        for (Content content: contents) {
+            User user = userMapper.selectById(content.getUserId());
+            ContentDto contentDto = new ContentDto();
+            contentDto.setId(content.getId());
+            contentDto.setTitle(content.getTitle());
+            contentDto.setDetail(content.getDetail());
+            contentDto.setCreateTime(content.getCreateTime());
+            contentDto.setImageUrl(content.getImageUrl());
+            contentDto.setVideoUrl(content.getVideoUrl());
+            contentDto.setCheckPublish(content.getCheckPublish());
+            contentDto.setUserName(user.getUserName());
+            contentDtos.add(contentDto);
+        }
+        return contentDtos;
     }
 
     /**

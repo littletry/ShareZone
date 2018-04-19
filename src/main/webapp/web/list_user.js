@@ -3,7 +3,7 @@ var listUser = avalon.define({
     userList: [],
     init: function () {
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "/ShareZone/user/all?page="+"1",
             success: function (result) {
                 if (result.code === 0) {

@@ -1,6 +1,7 @@
 package top.littletry.sharezone.controller;
 
 
+import com.xiaoleilu.hutool.crypto.digest.DigestUtil;
 import com.xiaoleilu.hutool.util.ObjectUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -71,6 +72,18 @@ public class UserController {
         } else {
             return RestResponse.failed("密码修改失败，请检查用户名或原密码是否正确");
         }
+    }
+
+    @ApiOperation(value = "管理员重置密码",notes = "管理员重置密码")
+    @ResponseBody
+    @RequestMapping(value = "/setPassword", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse<String> setPassword(
+            @RequestParam("userId") String userId,
+            @RequestParam("newPassword") String newPassword) {
+        User user = userService.selectById(userId);
+        user.setPassword(DigestUtil.md5Hex(newPassword));
+        userService.updateById(user);
+        return RestResponse.success("密码重置成功");
     }
 
     @ApiOperation(value = "查询所有用户",notes = "查询所有用户")

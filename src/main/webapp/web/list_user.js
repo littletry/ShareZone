@@ -32,6 +32,28 @@ var listUser = avalon.define({
                 });
             }
         });
+    },
+    deleteUser: function (userId) {
+        layer.open({
+            title: '删除对话框',
+            content: "确认删除该用户吗？",
+            yes: function () {
+                $.ajax({
+                    type: "DELETE",
+                    url: "/ShareZone/user/delete?userId="+userId,
+                    success:function (result) {
+                        if (result.code === 0) {
+                            layer.alert(result.message, function () {
+                                location.replace(location.href);
+                            });
+                        }else {
+                            layer.alert(result.message);
+                        }
+                    }
+                });
+            }
+        });
+
     }
 
 });

@@ -82,12 +82,20 @@ public class ContentController {
         return RestResponse.success(contentService.selectByUserId(userId, page));
     }
 
-    @ApiOperation(value = "查询所有分享内容",notes = "查询所有分享内容")
+    @ApiOperation(value = "管理员查询所有分享内容",notes = "管理员查询所有分享内容")
     @ResponseBody
     @RequestMapping(value = "/all", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
     public RestResponse selectAll(
             @RequestParam int page) {
         return RestResponse.success(contentService.selectAll(page));
+    }
+
+    @ApiOperation(value = "用户查询所有分享内容",notes = "用户查询所有分享内容")
+    @ResponseBody
+    @RequestMapping(value = "/userAll", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResponse userSelectAll(
+            @RequestParam int page) {
+        return RestResponse.success(contentService.userSelectAll(page));
     }
 
     @ApiOperation(value = "修改审核状态", notes = "修改审核状态")

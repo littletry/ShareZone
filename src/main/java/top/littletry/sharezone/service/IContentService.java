@@ -53,11 +53,18 @@ public interface IContentService extends IService<Content> {
     List<Content> selectByUserId(String userId,int page);
 
     /**
-     * 查询所有分享内容
+     * 管理员查询所有分享内容
      * @param page
      * @return
      */
     List<ContentDto> selectAll(int page);
+
+    /**
+     * 用户查询所有分享内容
+     * @param page
+     * @return
+     */
+    List<ContentDto> userSelectAll(int page);
 
     /**
      * 修改审核状态

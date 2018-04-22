@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
 import top.littletry.sharezone.common.RestResponse;
 import top.littletry.sharezone.model.User;
+import top.littletry.sharezone.model.UserDto;
 import top.littletry.sharezone.service.IUserService;
 
 /**
@@ -34,7 +35,7 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "/register", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public RestResponse<String> register(
-            @RequestBody User user) {
+            @RequestBody UserDto user) {
 
         boolean exist = userService.insertUser(user);
         if (exist) {

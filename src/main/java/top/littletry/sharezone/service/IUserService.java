@@ -2,6 +2,7 @@ package top.littletry.sharezone.service;
 
 import top.littletry.sharezone.model.User;
 import com.baomidou.mybatisplus.service.IService;
+import top.littletry.sharezone.model.UserDto;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public interface IUserService extends IService<User> {
      * @param user
      * @return
      */
-    boolean insertUser(User user);
+    boolean insertUser(UserDto user);
 
     /**
      * 用户登录

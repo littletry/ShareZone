@@ -3,15 +3,18 @@ package top.littletry.sharezone.service.impl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.xiaoleilu.hutool.crypto.digest.DigestUtil;
+import com.xiaoleilu.hutool.date.DateTime;
 import com.xiaoleilu.hutool.date.DateUtil;
 import com.xiaoleilu.hutool.util.RandomUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import top.littletry.sharezone.model.User;
 import top.littletry.sharezone.dao.UserMapper;
+import top.littletry.sharezone.model.UserDto;
 import top.littletry.sharezone.service.IUserService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,7 +35,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
      * @return
      */
     @Override
-    public boolean insertUser(User user) {
+    public boolean insertUser(UserDto user) {
 
         List<User> lists = userMapper.selectList(
                 new EntityWrapper<User>().eq("login_name",user.getLoginName())
@@ -44,12 +47,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             String id = RandomUtil.randomUUID();
             String password = DigestUtil.md5Hex(user.getPassword());
             String regTime = DateUtil.date().toString();
+            String birthday = DateUtil.format(new DateTime(Long.parseLong(user.getBirthday())),"yyyy-MM-dd");
+            User user1 = new User();
+            user1.setId(id);
+            user1.setLoginName(user.getLoginName());
+            user1.setPassword(password);
+            user1.setUserName(user.getUserName());
+            user1.setSex(user.getSex());
+            user1.setBirthday(birthday);
+            user1.setEmail(user.getEmail());
+            user1.setDescription(user.getDescription());
+            user1.setRegTime(regTime);
 
-            user.setId(id);
-            user.setPassword(password);
-            user.setRegTime(regTime);
-
-            userMapper.insert(user);
+            userMapper.insert(user1);
 
             return true;
         }

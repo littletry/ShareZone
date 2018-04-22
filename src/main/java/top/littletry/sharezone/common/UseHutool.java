@@ -15,7 +15,7 @@ public class UseHutool {
     }
 
     public static void idcardUtil(){
-        String ID_SELF = "50023619950905667X";
+        /*String ID_SELF = "50023619950905667X";
         //是否有效
         System.out.println(IdcardUtil.isValidCard(ID_SELF));
         //年龄
@@ -26,7 +26,9 @@ public class UseHutool {
         //省份
         System.out.println(IdcardUtil.getProvinceByIdCard(ID_SELF));
         //获取性别
-        System.out.println(IdcardUtil.getGenderByIdCard(ID_SELF));
+        System.out.println(IdcardUtil.getGenderByIdCard(ID_SELF));*/
 
+        String date = "1995-10-28";
+        System.out.println(DateUtil.parse(date).getTime());
     }
 }

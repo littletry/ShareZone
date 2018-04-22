@@ -2,6 +2,7 @@ package top.littletry.sharezone.controller;
 
 
 import com.xiaoleilu.hutool.crypto.digest.DigestUtil;
+import com.xiaoleilu.hutool.date.DateUtil;
 import com.xiaoleilu.hutool.util.ObjectUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -91,6 +92,15 @@ public class UserController {
     @RequestMapping(value = "/all", method = RequestMethod.POST)
     public RestResponse selectAll(@RequestParam int page) {
         return RestResponse.success(userService.selectAll(page));
+    }
+
+    @ApiOperation(value = "根据id查询用户",notes = "根据id查询用户")
+    @ResponseBody
+    @RequestMapping(value = "/userId", method = RequestMethod.POST)
+    public RestResponse selectUserById(@RequestParam String userId) {
+        User user = userService.selectById(userId);
+        user.setBirthday(String.valueOf(DateUtil.parse(user.getBirthday()).getTime()));
+        return RestResponse.success(user);
     }
 
     @ApiOperation(value = "修改用户",notes = "修改用户")

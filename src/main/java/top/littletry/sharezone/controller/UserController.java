@@ -25,7 +25,7 @@ import top.littletry.sharezone.service.IUserService;
  */
 @Controller
 @Api(value = "UserController", description = "用户接口")
-@RequestMapping("/user")
+@RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserController {
 
     @Autowired
@@ -33,9 +33,8 @@ public class UserController {
 
     @ApiOperation(value = "用户注册",notes = "用户注册")
     @ResponseBody
-    @RequestMapping(value = "/register", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public RestResponse<String> register(
-            @RequestBody UserDto user) {
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public RestResponse<String> register(@RequestBody UserDto user) {
 
         boolean exist = userService.insertUser(user);
         if (exist) {
@@ -48,7 +47,7 @@ public class UserController {
 
     @ApiOperation(value = "用户登录",notes = "用户登录")
     @ResponseBody
-    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public RestResponse login(
             @RequestParam("loginName") String loginName,
             @RequestParam("password") String password) {
@@ -62,7 +61,7 @@ public class UserController {
 
     @ApiOperation(value = "用户密码更新",notes = "用户密码更新")
     @ResponseBody
-    @RequestMapping(value = "/resetPassword", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
     public RestResponse<String> update(
             @RequestParam("loginName") String loginName,
             @RequestParam("oldPassword") String oldPassword,
@@ -77,7 +76,7 @@ public class UserController {
 
     @ApiOperation(value = "管理员重置密码",notes = "管理员重置密码")
     @ResponseBody
-    @RequestMapping(value = "/setPassword", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/setPassword", method = RequestMethod.POST)
     public RestResponse<String> setPassword(
             @RequestParam("userId") String userId,
             @RequestParam("newPassword") String newPassword) {
@@ -89,14 +88,14 @@ public class UserController {
 
     @ApiOperation(value = "查询所有用户",notes = "查询所有用户")
     @ResponseBody
-    @RequestMapping(value = "/all", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/all", method = RequestMethod.POST)
     public RestResponse selectAll(@RequestParam int page) {
         return RestResponse.success(userService.selectAll(page));
     }
 
     @ApiOperation(value = "修改用户",notes = "修改用户")
     @ResponseBody
-    @RequestMapping(value = "/change", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/change", method = RequestMethod.POST)
     public RestResponse changeUser(@RequestBody User user) {
         boolean changeUser = userService.changeUser(user);
         if (changeUser) {
@@ -108,7 +107,7 @@ public class UserController {
 
     @ApiOperation(value = "删除用户",notes = "删除用户")
     @ResponseBody
-    @RequestMapping(value = "/delete",method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/delete",method = RequestMethod.DELETE)
     public RestResponse deleteUser(@RequestParam String userId) {
         boolean deleteUser = userService.deleteUser(userId);
         if (deleteUser) {

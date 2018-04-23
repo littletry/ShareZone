@@ -64,8 +64,8 @@ public class ContentController {
     @ApiOperation(value = "提交分享内容",notes = "提交分享内容")
     @ResponseBody
     @RequestMapping(value = "/commit", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-    public RestResponse<String> commit(@RequestBody Content content, @RequestParam String userId) {
-        String contentId = contentService.insertContent(content, userId);
+    public RestResponse<String> commit(@RequestBody Content content) {
+        String contentId = contentService.insertContent(content, content.getUserId());
         if (contentId.length() > 0) {
             return RestResponse.success(contentId);
         } else {

@@ -99,7 +99,6 @@ public class UserController {
     @RequestMapping(value = "/userId", method = RequestMethod.POST)
     public RestResponse selectUserById(@RequestParam String userId) {
         User user = userService.selectById(userId);
-        user.setBirthday(String.valueOf(DateUtil.parse(user.getBirthday()).getTime()));
         return RestResponse.success(user);
     }
 

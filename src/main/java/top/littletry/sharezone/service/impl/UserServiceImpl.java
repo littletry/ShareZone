@@ -47,14 +47,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             String id = RandomUtil.randomUUID();
             String password = DigestUtil.md5Hex(user.getPassword());
             String regTime = DateUtil.date().toString();
-            String birthday = DateUtil.format(new DateTime(Long.parseLong(user.getBirthday())),"yyyy-MM-dd");
             User user1 = new User();
             user1.setId(id);
             user1.setLoginName(user.getLoginName());
             user1.setPassword(password);
             user1.setUserName(user.getUserName());
             user1.setSex(user.getSex());
-            user1.setBirthday(birthday);
+            user1.setBirthday(user.getBirthday());
             user1.setEmail(user.getEmail());
             user1.setDescription(user.getDescription());
             user1.setRegTime(regTime);

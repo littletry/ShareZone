@@ -30,7 +30,6 @@
 				<th scope="col" colspan="12">用户列表</th>
 			</tr>
 			<tr class="text-c">
-				<th width="25"><input type="checkbox" name="" value=""></th>
 				<th width="40">序号</th>
 				<th width="60">登录用户名</th>
 				<th width="60">用户姓名</th>
@@ -45,21 +44,20 @@
 		</thead>
 		<tbody>
 			<tr class="text-c" ms-repeat="userList">
-				<td><input type="checkbox" value="1" name=""></td>
 				<td>{{ $index+1 }}</td>
 				<td>{{ el.loginName }}</td>
 				<td>{{ el.userName }}</td>
 				<td>{{ el.sex === 0 ? '男': (el.sex === 1 ? '女': '保密') }}</td>
-				<td>{{ el.birthday }}</td>
+				<td>{{ el.birthday | date("yyyy-MM-dd") }}</td>
 				<td>{{ el.email }}</td>
 				<td>{{ el.description }}</td>
 				<td>{{ el.regTime }}</td>
 				<td>{{ el.lastTime }}</td>
 				<td class="td-manage">
-					<a ms-click="changeUser(el.id)" title="编辑" href="javascript:;" class="ml-5" style="text-decoration:none">
+					<a ms-click="changeUser(el.id)" title="重置密码" href="javascript:;" class="ml-5" style="text-decoration:none">
 						<i class="Hui-iconfont">&#xe6df;</i>
 					</a>
-					<a ms-click="deleteUser(el.id)" title="删除" href="javascript:;" class="ml-5" style="text-decoration:none">
+					<a ms-click="deleteUser(el.id)" title="删除该用户" href="javascript:;" class="ml-5" style="text-decoration:none">
 						<i class="Hui-iconfont">&#xe6e2;</i>
 					</a>
 				</td>

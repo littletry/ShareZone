@@ -15,7 +15,6 @@ var listUser = avalon.define({
         });
     },
     changeUser: function (userId) {
-        console.log(userId);
         layer.open({
             title: '重置密码',
             content: "<div>新密码：<input type='text' class='input-text' id='newPassword'></div>",

@@ -51,7 +51,7 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
             //如果文件不为空，写入上传路径
             if (!file.isEmpty()) {
                 //上传路径
-                String path = request.getServletContext().getRealPath("/" + contentId + "/videos/");
+                String path = request.getServletContext().getContextPath() + "/" + contentId + "/videos";
                 //上传文件名
                 String filename = file.getOriginalFilename();
                 File filepath = new File(path, filename);
@@ -93,7 +93,7 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
             for (MultipartFile mul: files) {
                 if (!mul.isEmpty()) {
                     //上传路径
-                    String path = request.getServletContext().getRealPath("/" + contentId + "/images/");
+                    String path = request.getServletContext().getContextPath()+ "/" + contentId + "/images";
                     //上传文件名
                     String filename = mul.getOriginalFilename();
                     File filepath = new File(path, filename);

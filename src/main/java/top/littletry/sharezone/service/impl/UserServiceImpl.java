@@ -118,7 +118,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     public List<User> selectAll(int page) {
         List<User> users = userMapper.selectPage(
-                new Page<User>(page,10),
+                new Page<User>(page,30),
                 new EntityWrapper<User>().orderBy("reg_time",false)
         );
         return users;

@@ -147,7 +147,7 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
     @Override
     public List<Content> selectByUserId(String userId, int page) {
         List<Content> contents = contentMapper.selectPage(
-                new Page<Content>(page,10),
+                new Page<Content>(page,50),
                 new EntityWrapper<Content>().eq("user_id", userId).orderBy("create_time",false)
         );
         return contents;
@@ -160,7 +160,7 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
     @Override
     public List<ContentDto> selectAll(int page) {
         List<Content> contents = contentMapper.selectPage(
-                new Page<Content>(page,10),
+                new Page<Content>(page,50),
                 new EntityWrapper<Content>().orderBy("create_time",false)
         );
         List<ContentDto> contentDtos = new ArrayList<>();
@@ -187,7 +187,7 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
     @Override
     public List<ContentDto> userSelectAll(int page) {
         List<Content> contents = contentMapper.selectPage(
-                new Page<Content>(page,10),
+                new Page<Content>(page,50),
                 new EntityWrapper<Content>().orderBy("create_time",false)
                                             .eq("check_publish",1)
         );

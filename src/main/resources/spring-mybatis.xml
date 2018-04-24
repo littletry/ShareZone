@@ -48,8 +48,8 @@
                       class="com.baomidou.mybatisplus.plugins.OptimisticLockerInterceptor">
                 </bean>
                 <!-- 性能拦截器，兼打印sql，不建议生产环境配置-->
-                <bean id="performanceInterceptor"
-                      class="com.baomidou.mybatisplus.plugins.PerformanceInterceptor"/>
+                <!--<bean id="performanceInterceptor"
+                      class="com.baomidou.mybatisplus.plugins.PerformanceInterceptor"/>-->
             </array>
         </property>
     </bean>

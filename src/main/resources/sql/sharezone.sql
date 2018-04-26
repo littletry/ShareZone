@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2018-04-15 18:07:22
+Date: 2018-04-26 23:32:02
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS `content`;
 CREATE TABLE `content` (
   `id` varchar(255) COLLATE utf8_bin NOT NULL COMMENT '内容唯一标识',
   `title` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '分享内容标题',
-  `detail` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '详细信息',
+  `detail` varchar(2555) COLLATE utf8_bin DEFAULT NULL COMMENT '详细信息',
   `create_time` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '创建时间',
   `image_url` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '图片地址',
   `video_url` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '视频地址',

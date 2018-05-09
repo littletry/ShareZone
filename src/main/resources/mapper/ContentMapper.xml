@@ -8,15 +8,13 @@
         <result column="title" property="title" />
         <result column="detail" property="detail" />
         <result column="create_time" property="createTime" />
-        <result column="image_url" property="imageUrl" />
-        <result column="video_url" property="videoUrl" />
         <result column="user_id" property="userId" />
         <result column="check_publish" property="checkPublish" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, title, detail, create_time, image_url, video_url, user_id, check_publish
+        id, title, detail, create_time, user_id, check_publish
     </sql>
 
 </mapper>

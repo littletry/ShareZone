@@ -32,15 +32,6 @@ public interface IUserService extends IService<User> {
     User selectUser(String loginName, String password);
 
     /**
-     * 用户密码更新
-     * @param loginName
-     * @param oldPassword
-     * @param newPassword
-     * @return
-     */
-    boolean updateUser(String loginName, String oldPassword, String newPassword);
-
-    /**
      * 分页查询用户信息
      * @param page
      * @return

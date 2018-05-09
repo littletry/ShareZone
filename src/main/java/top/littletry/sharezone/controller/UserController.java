@@ -60,21 +60,6 @@ public class UserController {
         }
     }
 
-    @ApiOperation(value = "用户密码更新",notes = "用户密码更新")
-    @ResponseBody
-    @RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
-    public RestResponse<String> update(
-            @RequestParam("loginName") String loginName,
-            @RequestParam("oldPassword") String oldPassword,
-            @RequestParam("newPassword") String newPassword) {
-        boolean updateUser = userService.updateUser(loginName, oldPassword, newPassword);
-        if (updateUser) {
-            return RestResponse.success("密码修改成功，请登录");
-        } else {
-            return RestResponse.failed("密码修改失败，请检查用户名或原密码是否正确");
-        }
-    }
-
     @ApiOperation(value = "管理员重置密码",notes = "管理员重置密码")
     @ResponseBody
     @RequestMapping(value = "/setPassword", method = RequestMethod.POST)

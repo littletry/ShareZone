@@ -1,4 +1,4 @@
-package top.littletry.sharezone.common;
+package top.littletry.sharezone;
 
 import com.xiaoleilu.hutool.date.DateTime;
 import com.xiaoleilu.hutool.date.DateUtil;

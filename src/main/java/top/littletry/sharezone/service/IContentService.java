@@ -19,24 +19,6 @@ import java.util.List;
 public interface IContentService extends IService<Content> {
 
     /**
-     * 上传视频
-     * @param request
-     * @param contentId
-     * @param file
-     * @return
-     */
-    boolean videoUpload(HttpServletRequest request, String contentId, MultipartFile file);
-
-    /**
-     * 上传一张或多张图片
-     * @param request
-     * @param contentId
-     * @param files
-     * @return
-     */
-    boolean imageUpload(HttpServletRequest request, String contentId, MultipartFile[] files);
-
-    /**
      * 插入一条分享内容
      * @param content
      * @param userId
@@ -53,18 +35,11 @@ public interface IContentService extends IService<Content> {
     List<Content> selectByUserId(String userId,int page);
 
     /**
-     * 管理员查询所有分享内容
+     * 查询所有分享内容
      * @param page
      * @return
      */
     List<ContentDto> selectAll(int page);
-
-    /**
-     * 用户查询所有分享内容
-     * @param page
-     * @return
-     */
-    List<ContentDto> userSelectAll(int page);
 
     /**
      * 修改审核状态

@@ -1,4 +1,4 @@
-package top.littletry.sharezone.common;
+package top.littletry.sharezone;
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;

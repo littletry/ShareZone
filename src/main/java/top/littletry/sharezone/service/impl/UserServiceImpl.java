@@ -88,29 +88,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     /**
-     * 用户密码更新
-     * @param loginName
-     * @param oldPassword
-     * @param newPassword
-     * @return
-     */
-    @Override
-    public boolean updateUser(String loginName, String oldPassword, String newPassword) {
-        List<User> lists = userMapper.selectList(
-                new EntityWrapper<User>().eq("login_name",loginName)
-                        .eq("password",DigestUtil.md5Hex(oldPassword))
-        );
-        if (lists.size() > 0) {
-            User user = lists.get(0);
-            user.setPassword(DigestUtil.md5Hex(newPassword));
-            userMapper.updateById(user);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
      * 查询所有用户
      * @return
      */

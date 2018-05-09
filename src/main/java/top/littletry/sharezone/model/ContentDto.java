@@ -42,16 +42,6 @@ public class ContentDto extends Model<ContentDto> {
     @ApiModelProperty(value = "创建时间",hidden = true)
     private String createTime;
     /**
-     * 图片地址
-     */
-    @ApiModelProperty(value = "图片地址",hidden = true)
-    private String imageUrl;
-    /**
-     * 视频地址
-     */
-    @ApiModelProperty(value = "视频地址",hidden = true)
-    private String videoUrl;
-    /**
      * 用户姓名
      */
     @NotBlank(message = "用户Id")
@@ -96,22 +86,6 @@ public class ContentDto extends Model<ContentDto> {
         this.createTime = createTime;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
-    public String getVideoUrl() {
-        return videoUrl;
-    }
-
-    public void setVideoUrl(String videoUrl) {
-        this.videoUrl = videoUrl;
-    }
-
     public String getUserName() {
         return userName;
     }
@@ -140,8 +114,6 @@ public class ContentDto extends Model<ContentDto> {
                 ", title=" + title +
                 ", detail=" + detail +
                 ", createTime=" + createTime +
-                ", imageUrl=" + imageUrl +
-                ", videoUrl=" + videoUrl +
                 ", userId=" + userName +
                 ", checkPublish=" + checkPublish +
                 "}";

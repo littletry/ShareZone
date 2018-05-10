@@ -67,7 +67,7 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
     }
 
     /**
-     * 查询所有分享内容
+     * 管理员查询所有分享内容
      * @return
      */
     @Override
@@ -75,6 +75,32 @@ public class ContentServiceImpl extends ServiceImpl<ContentMapper, Content> impl
         List<Content> contents = contentMapper.selectPage(
                 new Page<Content>(page,50),
                 new EntityWrapper<Content>().orderBy("create_time",false)
+        );
+        List<ContentDto> contentDtos = new ArrayList<>();
+        for (Content content: contents) {
+            User user = userMapper.selectById(content.getUserId());
+            ContentDto contentDto = new ContentDto();
+            contentDto.setId(content.getId());
+            contentDto.setTitle(content.getTitle());
+            contentDto.setDetail(content.getDetail());
+            contentDto.setCreateTime(content.getCreateTime());
+            contentDto.setCheckPublish(content.getCheckPublish());
+            contentDto.setUserName(user.getUserName());
+            contentDtos.add(contentDto);
+        }
+        return contentDtos;
+    }
+
+    /**
+     * 用户查询所有分享内容
+     * @return
+     */
+    @Override
+    public List<ContentDto> userSelectAll(int page) {
+        List<Content> contents = contentMapper.selectPage(
+                new Page<Content>(page,50),
+                new EntityWrapper<Content>().orderBy("create_time",false)
+                        .eq("check_publish",1)
         );
         List<ContentDto> contentDtos = new ArrayList<>();
         for (Content content: contents) {

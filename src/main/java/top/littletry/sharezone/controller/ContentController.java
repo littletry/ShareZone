@@ -8,12 +8,9 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.multipart.MultipartFile;
 import top.littletry.sharezone.common.RestResponse;
 import top.littletry.sharezone.model.Content;
 import top.littletry.sharezone.service.IContentService;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * <p>

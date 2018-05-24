@@ -1,11 +1,9 @@
 package top.littletry.sharezone.service;
 
-import org.springframework.web.multipart.MultipartFile;
 import top.littletry.sharezone.model.Content;
 import com.baomidou.mybatisplus.service.IService;
 import top.littletry.sharezone.model.ContentDto;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**

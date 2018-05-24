@@ -1,11 +1,8 @@
 package top.littletry.sharezone.model;
 
-import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.NotBlank;
-
-import java.io.Serializable;
 
 /**
  * <p>
